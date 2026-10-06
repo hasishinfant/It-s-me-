@@ -1,0 +1,586 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-editorial: 'Instrument Serif', Georgia, serif;
+  --font-heading: 'Instrument Serif', Georgia, serif;
+  --font-grotesk: 'Space Grotesk', sans-serif;
+  --font-brutalist: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-warm-bg: #f6f5f1;
+  --color-dark-bg: #0c0c0e;
+}
+
+html, body {
+  background: #ebeae5;
+  color: #121212;
+  font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* ═══════════════════════════════════════════
+   EDITORIAL TYPOGRAPHY UTILITIES
+   ═══════════════════════════════════════════ */
+
+.font-editorial {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+.font-grotesk {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   FONT UTILITY CLASSES
+   ═══════════════════════════════════════════ */
+
+.font-heading {
+  font-family: 'Instrument Serif', serif;
+}
+
+.font-body {
+  font-family: 'Barlow', sans-serif;
+}
+
+.font-brutalist {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ═══════════════════════════════════════════
+   LIQUID GLASS (Existing — Preserved)
+   ═══════════════════════════════════════════ */
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.15) 80%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.liquid-glass-strong {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border: none;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass-strong::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.2) 80%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   BRUTALIST DESIGN SYSTEM (New)
+   ═══════════════════════════════════════════ */
+
+/* ── Brutalist Cards ── */
+.brutalist-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.brutalist-card:hover {
+  border-color: rgba(251, 191, 36, 0.6);
+  transform: translateY(-4px);
+}
+
+.brutalist-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #fbbf24, #38bdf8, #a855f7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.brutalist-card:hover::after {
+  opacity: 1;
+}
+
+/* ── Brutalist Borders ── */
+.brutalist-border {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.brutalist-border-amber {
+  border: 2px solid rgba(251, 191, 36, 0.4);
+}
+
+.brutalist-border-strong {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ── Text Stroke / Outline Typography ── */
+.text-stroke {
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  color: transparent;
+}
+
+.text-stroke-thin {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7);
+  color: transparent;
+}
+
+.text-stroke-amber {
+  -webkit-text-stroke: 2px rgba(251, 191, 36, 0.8);
+  color: transparent;
+}
+
+.text-stroke-cyan {
+  -webkit-text-stroke: 1.5px rgba(56, 189, 248, 0.7);
+  color: transparent;
+}
+
+/* ── Brutalist Section Marker ── */
+.section-marker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  border-left: 3px solid #fbbf24;
+  padding-left: 12px;
+}
+
+/* ── Brutalist Index Number ── */
+.brutalist-index {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.12);
+  color: transparent;
+  line-height: 0.85;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ── Raw Grid Overlay ── */
+.raw-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.raw-grid-dense {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ── Noise Overlay ── */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* ── Scanline Effect ── */
+.scanline-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ═══════════════════════════════════════════
+   BRUTALIST ANIMATIONS
+   ═══════════════════════════════════════════ */
+
+/* ── Glitch Text ── */
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* ── Glitch with color offset ── */
+.glitch-hover {
+  position: relative;
+}
+
+.glitch-hover::before,
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glitch-hover::before {
+  color: #38bdf8;
+  z-index: -1;
+}
+
+.glitch-hover::after {
+  color: #f43f5e;
+  z-index: -1;
+}
+
+.glitch-hover:hover::before {
+  opacity: 0.8;
+  animation: glitch-color-1 0.3s ease-in-out;
+}
+
+.glitch-hover:hover::after {
+  opacity: 0.8;
+  animation: glitch-color-2 0.3s ease-in-out;
+}
+
+@keyframes glitch-color-1 {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(3px, -2px); }
+  50% { transform: translate(-2px, 3px); }
+  75% { transform: translate(2px, -1px); }
+}
+
+@keyframes glitch-color-2 {
+  0%, 100% { transform: translate(0); }
+  25% { transform: translate(-3px, 2px); }
+  50% { transform: translate(2px, -3px); }
+  75% { transform: translate(-2px, 1px); }
+}
+
+/* ── Brutalist Reveal ── */
+@keyframes brutalist-reveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.brutalist-reveal {
+  animation: brutalist-reveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ── Scroll Progress Bar ── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #fbbf24, #38bdf8, #a855f7, #f43f5e);
+  z-index: 9999;
+  transform-origin: left;
+  transition: transform 0.1s linear;
+}
+
+/* ── Brutalist Horizontal Rule ── */
+.brutalist-hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+/* ── Brutalist Input Fields ── */
+.brutalist-input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  padding: 12px 0;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  color: white;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.brutalist-input:focus {
+  border-bottom-color: #fbbf24;
+}
+
+.brutalist-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+/* ── Brutalist Button ── */
+.brutalist-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.brutalist-btn:hover {
+  background: white;
+  color: black;
+}
+
+.brutalist-btn-amber {
+  border-color: #fbbf24;
+  color: #fbbf24;
+}
+
+.brutalist-btn-amber:hover {
+  background: #fbbf24;
+  color: black;
+}
+
+/* ── Large Watermark Text ── */
+.watermark-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
+  color: transparent;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  white-space: nowrap;
+}
+
+/* ── Brutalist Stats Ticker ── */
+.stats-ticker {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 0;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.stats-ticker::-webkit-scrollbar {
+  display: none;
+}
+
+.stats-ticker .stat-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.stats-ticker .stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #fbbf24;
+}
+
+.stats-ticker .stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Brutalist Tag ── */
+.brutalist-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+}
+
+.brutalist-tag:hover {
+  border-color: #fbbf24;
+  color: #fbbf24;
+}
+
+/* ── Custom Scrollbar (Brutalist) ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(251, 191, 36, 0.4);
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE BRUTALIST UTILITIES
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .text-stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9);
+  }
+  
+  .brutalist-index {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .watermark-text {
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   ART-DIRECTED VIEWPORT SHELL & ACCENTS
+   ═══════════════════════════════════════════ */
+
+.viewport-shell {
+  background-color: #f6f5f1;
+  border-radius: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 30px 100px -20px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .viewport-shell {
+    border-radius: 2.5rem;
+  }
+}
+
+.accent-rail-left {
+  position: absolute;
+  top: 48px;
+  bottom: 48px;
+  left: 14px;
+  width: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #ec4899 0%, #a855f7 50%, #6366f1 100%);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.accent-rail-right {
+  position: absolute;
+  top: 48px;
+  bottom: 48px;
+  right: 14px;
+  width: 3px;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #ec4899 0%, #a855f7 50%, #6366f1 100%);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.editorial-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.08);
+}
