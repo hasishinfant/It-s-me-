@@ -19,9 +19,9 @@ export const LetsBuildSection: React.FC = () => {
     e.preventDefault();
     const subject = encodeURIComponent(
       intent === 'recruiter'
-        ? `[Internship / Hiring] Opportunity for Hasish Infant`
+        ? `[Opportunity] Connecting with Hasish Infant`
         : intent === 'client'
-        ? `[Freelance Project] Project Inquiry from ${formData.name || 'Client'}`
+        ? `[Project] Inquiry from ${formData.name || 'Client'}`
         : `[Collaboration] Reaching out to Hasish Infant`
     );
     const body = encodeURIComponent(
@@ -69,15 +69,15 @@ export const LetsBuildSection: React.FC = () => {
           >
             <div className="flex items-center justify-between mb-3">
               <span className="px-2 py-0.5 bg-[#FF0000] text-white font-mono text-[10px] font-black uppercase">
-                RECRUITER / HIRING
+                OPPORTUNITIES
               </span>
               <span className="font-mono text-xs font-black">01</span>
             </div>
             <h3 className="text-xl font-black font-grotesk text-black mb-2">
-              LOOKING FOR AN INTERN?
+              DISCUSS A ROLE OR INTERNSHIP?
             </h3>
             <p className="text-xs sm:text-sm font-body text-neutral-800 font-medium">
-              Actively seeking Summer 2025 and immediate software engineering or AI internships. Let's discuss role alignment and team fit.
+              Open to software engineering and AI internships. Let's discuss where I can add immediate value to your engineering team.
             </p>
           </div>
 
@@ -92,15 +92,15 @@ export const LetsBuildSection: React.FC = () => {
           >
             <div className="flex items-center justify-between mb-3">
               <span className="px-2 py-0.5 bg-black text-[#FAFF00] font-mono text-[10px] font-black uppercase">
-                FREELANCE CLIENT
+                PROJECT INQUIRY
               </span>
               <span className="font-mono text-xs font-black">02</span>
             </div>
             <h3 className="text-xl font-black font-grotesk text-black mb-2">
-              HAVE A PROJECT TO SHIP?
+              HAVE AN APP TO SHIP?
             </h3>
             <p className="text-xs sm:text-sm font-body text-neutral-800 font-medium">
-              Need a modern business website, high-converting landing page, or full-stack MVP delivered in 1-2 weeks? Let's discuss scope.
+              Need a modern web app, high-converting landing page, or custom AI features built and deployed? Let's discuss scope.
             </p>
           </div>
 
@@ -115,7 +115,7 @@ export const LetsBuildSection: React.FC = () => {
           >
             <div className="flex items-center justify-between mb-3">
               <span className="px-2 py-0.5 bg-neutral-200 text-black border border-black font-mono text-[10px] font-black uppercase">
-                BUILDER / COLLAB
+                COLLABORATION
               </span>
               <span className="font-mono text-xs font-black">03</span>
             </div>
@@ -123,7 +123,7 @@ export const LetsBuildSection: React.FC = () => {
               LET'S HACK TOGETHER
             </h3>
             <p className="text-xs sm:text-sm font-body text-neutral-800 font-medium">
-              Want to collaborate on an open-source AI project, enter a hackathon, or just talk tech? I'm always open to connecting.
+              Want to collaborate on open-source AI projects, enter hackathons, or just connect? Drop me a note.
             </p>
           </div>
         </div>
@@ -236,7 +236,7 @@ export const LetsBuildSection: React.FC = () => {
                       intent === 'recruiter' ? 'bg-black text-white shadow-[2px_2px_0px_#000]' : 'bg-[#F4F4F0] text-black hover:bg-neutral-200'
                     }`}
                   >
-                    RECRUITER / HIRING
+                    OPPORTUNITIES
                   </button>
                   <button
                     type="button"
@@ -245,7 +245,7 @@ export const LetsBuildSection: React.FC = () => {
                       intent === 'client' ? 'bg-[#FAFF00] text-black shadow-[2px_2px_0px_#000]' : 'bg-[#F4F4F0] text-black hover:bg-neutral-200'
                     }`}
                   >
-                    FREELANCE CLIENT
+                    PROJECT INQUIRY
                   </button>
                   <button
                     type="button"
@@ -254,7 +254,7 @@ export const LetsBuildSection: React.FC = () => {
                       intent === 'collab' ? 'bg-[#FF0000] text-white shadow-[2px_2px_0px_#000]' : 'bg-[#F4F4F0] text-black hover:bg-neutral-200'
                     }`}
                   >
-                    COLLABORATOR
+                    COLLABORATION
                   </button>
                 </div>
               </div>

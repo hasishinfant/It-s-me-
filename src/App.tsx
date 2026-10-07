@@ -60,7 +60,7 @@ export const App: React.FC = () => {
         {/* Navigation Bar */}
         <EditorialNavbar onContactClick={() => handleScrollToSection('contact')} />
 
-        {/* ── 55% RECRUITER · 45% FREELANCE COMIC NARRATIVE FLOW ── */}
+        {/* ── COMIC-BRUTALIST PERSONAL BRAND PORTFOLIO ── */}
         <main className="relative w-full overflow-hidden">
           {/* 01: HERO — Headline, 3 CTA Buttons, Signature 3D Kinetic Object, Credentials */}
           <EditorialHero
@@ -68,7 +68,7 @@ export const App: React.FC = () => {
             onTalkClick={() => handleScrollToSection('contact')}
           />
 
-          {/* 02: RECRUITER SNAPSHOT — 5-Second Scan with CGPA 8.02, Bengaluru, Quick Resume/Github Links */}
+          {/* 02: AT A GLANCE — Technical Overview, Bengaluru, Quick Resume/Github Links */}
           <RecruiterSnapshotSection />
 
           {/* 03: WHAT I'M BUILDING RIGHT NOW — 5 Core Engineering Domains */}

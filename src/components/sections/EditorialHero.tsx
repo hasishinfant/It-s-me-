@@ -33,12 +33,12 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#FAFF00] border border-black text-[11px] font-mono font-bold text-black">
-            <span>55% RECRUITER · 45% FREELANCE</span>
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-[#FAFF00] border border-black text-[11px] font-mono font-bold text-black">
+            <span>AVAILABLE FOR WORK & PROJECTS</span>
           </div>
-          <span className="hidden md:inline-flex items-center gap-1 text-[11px] text-neutral-600">
+          <span className="hidden md:inline-flex items-center gap-1 text-[11px] text-neutral-700">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-            <span>CGPA: {PERSONAL_DATA.education.cgpa}</span>
+            <span>CS UNDERGRAD · BUILDER</span>
           </span>
         </div>
       </div>
@@ -77,7 +77,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-6 text-base sm:text-lg md:text-xl font-body text-neutral-800 max-w-2xl font-medium leading-relaxed"
         >
-          3rd-year Computer Science undergraduate from Bengaluru building scalable full-stack applications, intelligent AI systems, and shipping high-converting products for clients.
+          Computer Science undergraduate from Bengaluru building scalable full-stack applications, intelligent AI systems, and shipping products for clients.
         </motion.p>
 
         {/* Action Button Strip */}
@@ -123,7 +123,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
       </div>
 
       {/* ── 3D SIGNATURE IDENTITY OBJECT WITH COMIC ORBIT TAGS ── */}
-      <div className="relative w-full max-w-3xl flex items-center justify-center mt-6 sm:mt-8">
+      <div className="relative w-full max-w-4xl flex items-center justify-center my-6 sm:my-8 px-4">
         <div className="relative flex items-center justify-center">
           {/* Central 3D Canvas */}
           <HeroIdentity3D className="z-10" />
@@ -133,7 +133,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="absolute -top-1 left-2 sm:-left-8 md:-left-12 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
+            className="absolute -top-3 -left-3 sm:-left-12 md:-left-20 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
           >
             <Cpu className="w-3.5 h-3.5 text-purple-600" />
             <span>AI SYSTEMS</span>
@@ -144,7 +144,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="absolute bottom-6 left-0 sm:-left-10 md:-left-16 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
+            className="absolute bottom-4 -left-3 sm:-left-14 md:-left-24 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
           >
             <Layers className="w-3.5 h-3.5 text-blue-600" />
             <span>FULL-STACK</span>
@@ -155,7 +155,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="absolute -top-1 right-2 sm:-right-8 md:-right-12 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-[#FAFF00] border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
+            className="absolute -top-3 -right-3 sm:-right-12 md:-right-20 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-[#FAFF00] border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
           >
             <Sparkles className="w-3.5 h-3.5 text-black" />
             <span>FAST SHIPPER</span>
@@ -166,7 +166,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="absolute bottom-6 right-0 sm:-right-10 md:-right-16 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
+            className="absolute bottom-4 -right-3 sm:-right-14 md:-right-24 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
           >
             <Terminal className="w-3.5 h-3.5 text-emerald-600" />
             <span>WEBRTC SFU</span>
@@ -181,7 +181,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
             📍 BENGALURU, INDIA
           </span>
           <span className="px-2 py-1 bg-white border border-black shadow-[2px_2px_0px_#000]">
-            🎓 ALLIANCE UNIVERSITY · 8.02 CGPA
+            🎓 ALLIANCE UNIVERSITY
           </span>
           <span className="px-2 py-1 bg-[#FAFF00] border border-black shadow-[2px_2px_0px_#000]">
             ⚡ 50+ DSA PROBLEMS
@@ -192,10 +192,10 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
         </div>
 
         <button
-          onClick={() => scrollTo('recruiter-snapshot')}
+          onClick={() => scrollTo('overview')}
           className="inline-flex items-center gap-1.5 text-xs text-neutral-800 hover:text-black hover:underline cursor-pointer"
         >
-          <span>QUICK RECRUITER SNAPSHOT</span>
+          <span>EXPLORE OVERVIEW</span>
           <ArrowDown className="w-3.5 h-3.5" />
         </button>
       </div>

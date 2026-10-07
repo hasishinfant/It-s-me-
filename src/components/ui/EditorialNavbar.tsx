@@ -49,10 +49,10 @@ export const EditorialNavbar: React.FC<EditorialNavbarProps> = ({ onContactClick
         {/* Center Nav Links */}
         <nav className="hidden md:flex items-center gap-5 text-xs font-mono font-bold uppercase tracking-wider text-black">
           <button
-            onClick={() => scrollTo('recruiter-snapshot')}
+            onClick={() => scrollTo('overview')}
             className="hover:bg-[#FAFF00] px-2 py-1 border border-transparent hover:border-black transition-all cursor-pointer"
           >
-            SNAPSHOT
+            OVERVIEW
           </button>
           <button
             onClick={() => scrollTo('work')}
@@ -130,10 +130,10 @@ export const EditorialNavbar: React.FC<EditorialNavbarProps> = ({ onContactClick
       {mobileMenuOpen && (
         <div className="pointer-events-auto md:hidden mt-2 p-4 bg-white border-2 border-black shadow-[6px_6px_0px_#000] flex flex-col gap-3 font-mono text-xs font-bold uppercase">
           <button
-            onClick={() => scrollTo('recruiter-snapshot')}
+            onClick={() => scrollTo('overview')}
             className="text-left py-2 px-3 hover:bg-[#FAFF00] border border-black"
           >
-            01. RECRUITER SNAPSHOT
+            01. OVERVIEW
           </button>
           <button
             onClick={() => scrollTo('work')}
@@ -145,7 +145,7 @@ export const EditorialNavbar: React.FC<EditorialNavbarProps> = ({ onContactClick
             onClick={() => scrollTo('services')}
             className="text-left py-2 px-3 hover:bg-[#FAFF00] border border-black"
           >
-            03. FREELANCE SERVICES
+            03. SERVICES
           </button>
           <button
             onClick={() => scrollTo('stack')}

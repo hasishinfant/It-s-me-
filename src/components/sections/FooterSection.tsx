@@ -33,17 +33,17 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onScrollToTop }) =
             </span>
           </div>
           <div className="font-mono text-xs text-neutral-400">
-            3RD-YEAR CS UNDERGRAD · BENGALURU, INDIA · 55% RECRUITER · 45% FREELANCE
+            FULL-STACK DEVELOPER & AI BUILDER · BENGALURU, INDIA
           </div>
         </div>
 
         {/* Center Quick Navigation */}
         <nav className="flex flex-wrap items-center gap-4 font-mono text-xs font-bold uppercase tracking-wider text-neutral-300">
           <button
-            onClick={() => scrollTo('recruiter-snapshot')}
+            onClick={() => scrollTo('overview')}
             className="hover:text-[#FAFF00] transition-colors cursor-pointer"
           >
-            SNAPSHOT
+            OVERVIEW
           </button>
           <button
             onClick={() => scrollTo('work')}

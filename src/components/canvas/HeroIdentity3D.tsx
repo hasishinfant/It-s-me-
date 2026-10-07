@@ -95,32 +95,32 @@ const IdentitySculpture: React.FC<IdentitySculptureProps> = ({ pointer, scrollOf
   return (
     <group ref={groupRef} position={[0, 0, 0]}>
       {/* Central Tactile Sculptural Body */}
-      <Float speed={1.8} rotationIntensity={0.3} floatIntensity={0.5}>
+      <Float speed={1.8} rotationIntensity={0.25} floatIntensity={0.35}>
         <mesh ref={coreMeshRef} material={obsidianMaterial} castShadow receiveShadow>
-          <torusKnotGeometry args={[0.88, 0.27, 140, 36, 2, 3]} />
+          <torusKnotGeometry args={[0.76, 0.23, 140, 36, 2, 3]} />
         </mesh>
       </Float>
 
       {/* Orbiting Precision Liquid Chrome Gyro Ring */}
       <mesh ref={outerGyroRef} material={liquidChromeMaterial}>
-        <torusGeometry args={[1.52, 0.022, 24, 120]} />
+        <torusGeometry args={[1.36, 0.02, 24, 120]} />
       </mesh>
 
       {/* Secondary Smoked Translucent Orbit Plane */}
       <mesh ref={innerRingRef} material={smokedGlassMaterial}>
-        <torusGeometry args={[1.28, 0.035, 24, 96]} />
+        <torusGeometry args={[1.15, 0.03, 24, 96]} />
       </mesh>
 
       {/* Satellite Liquid Chrome Sensor Orb */}
       <mesh ref={satelliteOrbRef} material={liquidChromeMaterial}>
-        <sphereGeometry args={[0.14, 32, 32]} />
+        <sphereGeometry args={[0.12, 32, 32]} />
       </mesh>
 
       {/* Studio Floor Contact Shadow */}
       <ContactShadows
-        position={[0, -1.55, 0]}
-        opacity={0.4}
-        scale={4.8}
+        position={[0, -1.45, 0]}
+        opacity={0.35}
+        scale={4.2}
         blur={2.0}
         far={2.8}
         color="#08080a"
@@ -159,10 +159,10 @@ export const HeroIdentity3D: React.FC<{ className?: string }> = ({ className = '
     <div
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className={`relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] lg:w-[460px] lg:h-[460px] select-none ${className}`}
+      className={`relative w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] md:w-[420px] md:h-[420px] lg:w-[460px] lg:h-[460px] select-none ${className}`}
     >
       <Canvas
-        camera={{ position: [0, 0, 4.1], fov: 40 }}
+        camera={{ position: [0, 0, 4.4], fov: 38 }}
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >

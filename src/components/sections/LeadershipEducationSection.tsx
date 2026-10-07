@@ -112,7 +112,7 @@ export const LeadershipEducationSection: React.FC = () => {
                 {PERSONAL_DATA.education.degree}
               </h3>
               <div className="inline-block px-2.5 py-1 bg-black text-[#FAFF00] font-mono text-xs font-black uppercase my-2">
-                CGPA: {PERSONAL_DATA.education.cgpa}
+                BENGALURU, INDIA · 2024–2028
               </div>
               <p className="text-sm font-body text-neutral-900 leading-relaxed font-medium">
                 Strong focus on Data Structures & Algorithms, Object-Oriented System Design, Cloud Architecture, and Operating Systems.

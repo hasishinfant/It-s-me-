@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { RECRUITER_SNAPSHOT, PERSONAL_DATA } from '../../data/portfolioData';
-import { FileText, Calendar, ArrowUpRight, Award, GraduationCap } from 'lucide-react';
+import { FileText, Calendar, ArrowUpRight, User, GraduationCap } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../ui/SocialIcons';
 
 export const RecruiterSnapshotSection: React.FC = () => {
   return (
     <section
-      id="recruiter-snapshot"
+      id="overview"
       className="w-full px-4 sm:px-8 py-16 bg-[#F4F4F0] border-b-2 border-black"
     >
       <div className="max-w-6xl mx-auto">
@@ -15,20 +15,20 @@ export const RecruiterSnapshotSection: React.FC = () => {
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FF0000] text-white border-2 border-black shadow-[3px_3px_0px_#000] font-mono text-xs font-bold uppercase mb-2">
-              <Award className="w-3.5 h-3.5" />
-              <span>55% RECRUITER · 5-SECOND SCAN</span>
+              <User className="w-3.5 h-3.5" />
+              <span>BACKGROUND & SUMMARY</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black font-grotesk tracking-tight text-black">
-              RECRUITER SNAPSHOT
+              AT A GLANCE
             </h2>
             <p className="mt-1 text-sm sm:text-base font-body text-neutral-700">
-              Everything an engineering manager or technical recruiter needs to know in under 10 seconds.
+              A quick overview of my technical foundation, education, and current focus areas.
             </p>
           </div>
 
           <div className="flex items-center gap-2 font-mono text-xs font-bold">
             <span className="px-3 py-1.5 bg-[#FAFF00] border-2 border-black shadow-[2px_2px_0px_#000]">
-              STATUS: OPEN TO INTERNSHIPS
+              STATUS: OPEN TO OPPORTUNITIES
             </span>
           </div>
         </div>
@@ -52,7 +52,7 @@ export const RecruiterSnapshotSection: React.FC = () => {
                 <span>{item.label}</span>
                 {item.highlight && (
                   <span className="px-1.5 py-0.5 bg-black text-white text-[10px]">
-                    KEY
+                    ACTIVE
                   </span>
                 )}
               </div>
@@ -72,10 +72,10 @@ export const RecruiterSnapshotSection: React.FC = () => {
             <div>
               <div className="flex items-center gap-2 font-mono text-xs font-bold text-neutral-500 uppercase">
                 <GraduationCap className="w-4 h-4 text-black" />
-                <span>Alliance University · Alliance School of Advanced Computing (2024–2028)</span>
+                <span>Alliance University · Bengaluru (2024–2028)</span>
               </div>
               <h3 className="text-base sm:text-lg font-bold font-grotesk text-black mt-0.5">
-                B.Tech Computer Science & Engineering — Current CGPA 8.02 / 10
+                B.Tech Computer Science & Engineering
               </h3>
               <p className="text-xs sm:text-sm text-neutral-700 font-body mt-1">
                 Active student leader, Co-Lead for Special Interest Group in Web Applications & UI/UX, Founder of Tech^Ferrs community. Proven hackathon competitor with national placements.
@@ -83,7 +83,7 @@ export const RecruiterSnapshotSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Action Links for Recruiters */}
+          {/* Quick Action Links */}
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 shrink-0 font-mono text-xs font-bold w-full md:w-auto">
             <a
               href={PERSONAL_DATA.socials.resumeUrl}

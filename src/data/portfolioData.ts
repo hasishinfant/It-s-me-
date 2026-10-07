@@ -74,10 +74,10 @@ export const PERSONAL_DATA = {
 export const RECRUITER_SNAPSHOT = [
   { label: "LOCATION", value: "Bengaluru, India", highlight: false },
   { label: "DEGREE", value: "B.Tech Computer Science", highlight: false },
-  { label: "ACADEMICS", value: "CGPA 8.02 / 10", highlight: true },
+  { label: "INSTITUTION", value: "Alliance University", highlight: false },
   { label: "CORE FOCUS", value: "Full-Stack Development", highlight: false },
   { label: "SPECIALTY", value: "AI & System Automation", highlight: false },
-  { label: "STATUS", value: "Open to Internships", highlight: true }
+  { label: "STATUS", value: "Open to Opportunities", highlight: true }
 ];
 
 export const CURRENT_EXPLORATIONS = [

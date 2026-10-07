@@ -77,10 +77,10 @@ export const AboutSection: React.FC = () => {
             {/* Quick Stats Box */}
             <div className="p-6 bg-[#FAFF00] border-2 sm:border-[3px] border-black shadow-[6px_6px_0px_#000] space-y-4">
               <span className="inline-block px-2 py-0.5 bg-black text-white font-mono text-xs font-bold uppercase">
-                THE BALANCE
+                THE MINDSET
               </span>
               <h4 className="text-xl font-black font-grotesk text-black">
-                55% RECRUITER · 45% FREELANCE
+                SYSTEMS ARCHITECTURE & CRAFT
               </h4>
               <p className="text-xs font-body text-neutral-900 font-semibold leading-relaxed">
                 Serious enough to understand distributed systems, data structures, and cloud architecture. Scrappy and creative enough to ship client websites, bold landing pages, and rapid MVPs.

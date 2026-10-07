@@ -25,7 +25,7 @@ export const FreelanceServicesSection: React.FC<FreelanceServicesSectionProps> =
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FAFF00] text-black border-2 border-black shadow-[3px_3px_0px_#000] font-mono text-xs font-bold uppercase mb-3">
               <Briefcase className="w-3.5 h-3.5" />
-              <span>45% FREELANCE · COMMERCIAL WORK</span>
+              <span>SERVICES & CLIENT BUILDS</span>
             </div>
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black font-grotesk tracking-tight text-black uppercase">
               I BUILD FOR PEOPLE TOO.

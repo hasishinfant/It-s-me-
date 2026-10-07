@@ -14,13 +14,13 @@ export const ScrollAnnotations: React.FC = () => {
       // Section detection
       const sections = [
         { id: 'hero', label: '01 HERO' },
-        { id: 'recruiter-snapshot', label: '02 RECRUITER SNAPSHOT' },
+        { id: 'overview', label: '02 AT A GLANCE' },
         { id: 'what-i-build', label: '03 DOMAINS' },
         { id: 'work', label: '04 SELECTED WORK' },
         { id: 'index', label: '05 ARCHIVE' },
         { id: 'proof', label: '06 PROOF OF WORK' },
         { id: 'leadership', label: '07 LEADERSHIP' },
-        { id: 'services', label: '08 FREELANCE SERVICES' },
+        { id: 'services', label: '08 SERVICES' },
         { id: 'stack', label: '09 TECHNICAL ARSENAL' },
         { id: 'about', label: '10 ABOUT HASISH' },
         { id: 'contact', label: '11 CREATE SOMETHING BOLD' },
