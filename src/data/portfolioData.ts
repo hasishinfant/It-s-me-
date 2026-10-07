@@ -64,7 +64,7 @@ export const PERSONAL_DATA = {
     topmate: "https://topmate.io/hasish_infant",
     website: "https://hasishinfant.dev",
     email: "hasishinfant@gmail.com",
-    resumeUrl: "#resume",
+    resumeUrl: "/resume/hasish-infant-resume.png",
     twitter: "https://twitter.com/hasishinfant",
     calendly: "https://topmate.io/hasish_infant"
   }
