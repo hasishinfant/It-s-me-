@@ -87,6 +87,8 @@ export const EditorialNavbar: React.FC<EditorialNavbarProps> = ({ onContactClick
         <div className="flex items-center gap-2.5">
           <a
             href={PERSONAL_DATA.socials.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 bg-white text-black text-xs font-mono font-bold uppercase border-2 border-black shadow-[2px_2px_0px_#000] hover:bg-neutral-100 active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
           >
             <FileText className="w-3.5 h-3.5" />

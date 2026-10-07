@@ -10,24 +10,28 @@ interface EditorialHeroProps {
 
 const HERO_PHOTOS = [
   {
-    src: '/images/hasish-speaking.jpg',
-    alt: 'Hasish speaking at a tech event',
-    caption: 'SPEAKING',
-  },
-  {
     src: '/images/hasish-presenting.jpg',
     alt: 'Hasish presenting NeoScholar AI',
     caption: 'PRESENTING',
+    badgeColor: 'bg-[#FAFF00] text-black',
+  },
+  {
+    src: '/images/hasish-speaking.jpg',
+    alt: 'Hasish speaking at tech event',
+    caption: 'SPEAKER',
+    badgeColor: 'bg-black text-[#FAFF00]',
   },
   {
     src: '/images/hasish-microsoft.jpg',
-    alt: 'Hasish at Microsoft Copilot event',
+    alt: 'Hasish at Microsoft Copilot',
     caption: 'MICROSOFT',
+    badgeColor: 'bg-[#FF0000] text-white',
   },
   {
     src: '/images/hasish-uipath.jpg',
-    alt: 'Hasish at UiPath Agent Builders Day',
-    caption: 'UIPATH',
+    alt: 'Hasish at UiPath Agent Builders Day Chennai',
+    caption: 'UIPATH AGENTS',
+    badgeColor: 'bg-white text-black',
   },
 ];
 
@@ -65,15 +69,15 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
         </button>
       </div>
 
-      {/* ── MAIN HERO CONTENT: TEXT LEFT + PHOTOS RIGHT ── */}
-      <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-16 mt-8 sm:mt-12 z-10">
+      {/* ── MAIN HERO CONTENT: TEXT LEFT + 2x2 PHOTO GRID RIGHT ── */}
+      <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-14 mt-8 sm:mt-12 z-10">
         {/* Left: Headline, Subtitle, CTAs */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black font-grotesk tracking-tight text-black leading-[1.05]"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-black font-grotesk tracking-tight text-black leading-[1.05]"
           >
             I BUILD DIGITAL PRODUCTS AND{' '}
             <span className="relative inline-block px-2 sm:px-3 bg-[#FAFF00] border-2 sm:border-[3px] border-black shadow-[4px_4px_0px_#000] rotate-[-1deg] text-black">
@@ -131,57 +135,36 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
           </motion.div>
         </div>
 
-        {/* Right: Neo-Brutalist Photo Collage */}
+        {/* Right: Neo-Brutalist 2x2 Photo Collage */}
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 25 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex-shrink-0 w-full max-w-[420px] lg:max-w-[480px]"
+          className="flex-shrink-0 w-full max-w-[420px] lg:max-w-[460px]"
         >
-          <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            {/* Primary Large Photo (Speaking) — spans full width */}
-            <div className="col-span-2 relative group">
-              <div className="overflow-hidden border-[3px] border-black shadow-[8px_8px_0px_#000] bg-white">
+          <div className="grid grid-cols-2 gap-3 sm:gap-3.5 p-3 sm:p-3.5 bg-white border-2 sm:border-[3px] border-black shadow-[8px_8px_0px_#000]">
+            {HERO_PHOTOS.map((photo, idx) => (
+              <div
+                key={idx}
+                className="relative group overflow-hidden border-2 border-black shadow-[3px_3px_0px_#000] bg-neutral-100"
+              >
                 <img
-                  src={HERO_PHOTOS[1].src}
-                  alt={HERO_PHOTOS[1].alt}
-                  className="w-full h-[220px] sm:h-[260px] object-cover object-top group-hover:scale-[1.03] transition-transform duration-300"
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-[155px] sm:h-[185px] object-cover object-top group-hover:scale-105 transition-transform duration-300"
                   loading="eager"
                 />
+                <div
+                  className={`absolute bottom-2 left-2 px-2 py-0.5 border border-black font-mono text-[9px] font-black uppercase shadow-[1px_1px_0px_#000] ${photo.badgeColor}`}
+                >
+                  {photo.caption}
+                </div>
               </div>
-              <div className="absolute bottom-3 left-3 px-2.5 py-1 bg-[#FAFF00] border-2 border-black shadow-[2px_2px_0px_#000] font-mono text-[10px] font-black uppercase text-black">
-                {HERO_PHOTOS[1].caption}
-              </div>
-            </div>
-
-            {/* Secondary Photos Row */}
-            <div className="relative group">
-              <div className="overflow-hidden border-[3px] border-black shadow-[6px_6px_0px_#000] bg-white">
-                <img
-                  src={HERO_PHOTOS[0].src}
-                  alt={HERO_PHOTOS[0].alt}
-                  className="w-full h-[180px] sm:h-[210px] object-cover object-top group-hover:scale-[1.03] transition-transform duration-300"
-                  loading="eager"
-                />
-              </div>
-              <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-black text-[#FAFF00] border border-black font-mono text-[9px] font-black uppercase">
-                {HERO_PHOTOS[0].caption}
-              </div>
-            </div>
-
-            <div className="relative group">
-              <div className="overflow-hidden border-[3px] border-black shadow-[6px_6px_0px_#000] bg-white">
-                <img
-                  src={HERO_PHOTOS[2].src}
-                  alt={HERO_PHOTOS[2].alt}
-                  className="w-full h-[180px] sm:h-[210px] object-cover object-center group-hover:scale-[1.03] transition-transform duration-300"
-                  loading="eager"
-                />
-              </div>
-              <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-[#FF0000] text-white border border-black font-mono text-[9px] font-black uppercase">
-                {HERO_PHOTOS[2].caption}
-              </div>
-            </div>
+            ))}
+          </div>
+          <div className="mt-2.5 flex items-center justify-between font-mono text-[10px] font-bold text-neutral-600 uppercase tracking-wider">
+            <span>HASISH INFANT</span>
+            <span>BUILDER IN PUBLIC · BENGALURU</span>
           </div>
         </motion.div>
       </div>
