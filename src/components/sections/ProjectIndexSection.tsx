@@ -1,111 +1,77 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, FolderGit2 } from 'lucide-react';
 import { PROJECT_INDEX_DATA } from '../../data/portfolioData';
 
 export const ProjectIndexSection: React.FC = () => {
-  const [hoveredProject, setHoveredProject] = useState<typeof PROJECT_INDEX_DATA[0] | null>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    setMousePos({ x: e.clientX, y: e.clientY });
-  };
-
   return (
-    <section
-      id="index"
-      onMouseMove={handleMouseMove}
-      className="relative py-24 sm:py-32 px-4 sm:px-8 bg-[#F4F3EF] border-t border-black/5"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
+    <section id="index" className="w-full px-4 sm:px-8 py-20 bg-[#F4F4F0] border-b-2 border-black">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-200/80 text-[11px] font-mono uppercase tracking-widest text-neutral-700 mb-3 border border-black/5">
-              <span>SECTION 07 // ARCHIVE REPOSITORY</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-black text-white border-2 border-black shadow-[3px_3px_0px_#000] font-mono text-xs font-bold uppercase mb-3">
+              <FolderGit2 className="w-3.5 h-3.5 text-[#FAFF00]" />
+              <span>ARCHIVE & REPOSITORIES</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold font-grotesk tracking-tight text-neutral-950 uppercase">
-              PROJECT INDEX
+            <h2 className="text-3xl sm:text-5xl font-black font-grotesk tracking-tight text-black uppercase">
+              PROJECT ARCHIVE
             </h2>
           </div>
-          <p className="text-xs font-mono text-neutral-500 uppercase">
-            Complete catalogue of builds, systems, and experiments
+          <p className="text-xs sm:text-sm font-mono font-bold text-neutral-700">
+            INDEX OF KEY BUILDS, CODE REPOSITORIES & ARCHITECTURES
           </p>
         </div>
 
-        {/* ── EDITORIAL INDEX TABLE ── */}
-        <div className="border-t border-black/15 divide-y divide-black/10">
-          {/* Table Header Row */}
-          <div className="py-3 px-4 hidden md:grid grid-cols-12 text-[11px] font-mono uppercase tracking-wider text-neutral-400">
-            <span className="col-span-5">PROJECT</span>
+        {/* Comic Table Container */}
+        <div className="space-y-3 font-mono">
+          {/* Header Bar */}
+          <div className="hidden md:grid grid-cols-12 gap-4 py-3 px-5 bg-[#FAFF00] border-2 sm:border-[3px] border-black shadow-[4px_4px_0px_#000] text-xs font-black uppercase text-black">
+            <span className="col-span-4">PROJECT NAME</span>
             <span className="col-span-2">YEAR</span>
-            <span className="col-span-3">TYPE</span>
-            <span className="col-span-2 text-right">ROLE</span>
+            <span className="col-span-3">CATEGORY</span>
+            <span className="col-span-3 text-right">STACK / GITHUB</span>
           </div>
 
-          {PROJECT_INDEX_DATA.map((row) => (
-            <motion.div
-              key={row.id}
-              onMouseEnter={() => setHoveredProject(row)}
-              onMouseLeave={() => setHoveredProject(null)}
-              className="group py-5 sm:py-6 px-4 grid grid-cols-2 md:grid-cols-12 items-center gap-2 sm:gap-4 transition-all duration-200 hover:bg-white/80 cursor-pointer rounded-xl"
+          {/* Rows */}
+          {PROJECT_INDEX_DATA.map((item, idx) => (
+            <motion.a
+              key={idx}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.2, delay: idx * 0.05 }}
+              className="grid grid-cols-1 md:grid-cols-12 items-center gap-2 md:gap-4 p-4 sm:px-5 bg-white border-2 border-black shadow-[4px_4px_0px_#000] hover:bg-[#FAFF00] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_#000] transition-all cursor-pointer group"
             >
-              {/* Project Name */}
-              <div className="col-span-1 md:col-span-5 flex items-center gap-3">
-                <span className="text-base sm:text-xl font-bold font-grotesk text-neutral-950 group-hover:text-black transition-colors">
-                  {row.name}
+              <div className="col-span-4 flex items-center gap-2">
+                <span className="text-base sm:text-lg font-black font-grotesk text-black">
+                  {item.name}
                 </span>
-                <ArrowUpRight className="w-4 h-4 text-neutral-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                <ArrowUpRight className="w-4 h-4 text-black opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
               </div>
 
-              {/* Year */}
-              <div className="hidden md:block col-span-2 text-xs font-mono text-neutral-500">
-                {row.year}
+              <div className="col-span-2 text-xs font-bold text-neutral-600">
+                <span className="md:hidden text-neutral-400 mr-2">YEAR:</span>
+                {item.year}
               </div>
 
-              {/* Type */}
-              <div className="col-span-1 md:col-span-3 text-right md:text-left text-xs font-mono text-neutral-600 font-medium">
-                {row.type}
+              <div className="col-span-3 text-xs font-bold text-neutral-800">
+                <span className="md:hidden text-neutral-400 mr-2">CATEGORY:</span>
+                <span className="px-2 py-0.5 bg-neutral-100 border border-black text-[10px]">
+                  {item.type}
+                </span>
               </div>
 
-              {/* Role */}
-              <div className="hidden md:block col-span-2 text-right text-xs font-mono text-neutral-500 uppercase">
-                {row.role}
+              <div className="col-span-3 text-xs font-bold text-neutral-700 md:text-right truncate">
+                <span className="md:hidden text-neutral-400 mr-2">STACK:</span>
+                {item.stack}
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
-
-        {/* ── FLOATING CURSOR-FOLLOWING THUMBNAIL PREVIEW ── */}
-        <AnimatePresence>
-          {hoveredProject && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                x: mousePos.x + 24,
-                y: mousePos.y - 60,
-              }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300, mass: 0.5 }}
-              className="fixed pointer-events-none z-50 hidden lg:block"
-            >
-              <div className="p-4 rounded-2xl bg-neutral-950 text-white border border-white/20 shadow-2xl backdrop-blur-md w-56 space-y-2">
-                <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
-                  <span className="text-purple-400 font-bold">● {hoveredProject.year}</span>
-                  <span>{hoveredProject.role}</span>
-                </div>
-                <div className="text-sm font-bold font-grotesk text-white">
-                  {hoveredProject.name}
-                </div>
-                <div className="text-[11px] font-mono text-neutral-300">
-                  {hoveredProject.type}
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </section>
   );

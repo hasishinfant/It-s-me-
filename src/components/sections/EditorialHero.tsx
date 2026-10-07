@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HeroIdentity3D } from '../canvas/HeroIdentity3D';
-import { ArrowDown, Sparkles, Terminal, Layers, Cpu, Compass } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Cpu, Layers, Terminal, Sparkles, FileText, CheckCircle2 } from 'lucide-react';
 import { PERSONAL_DATA } from '../../data/portfolioData';
 
 interface EditorialHeroProps {
@@ -10,176 +10,195 @@ interface EditorialHeroProps {
 }
 
 export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, onTalkClick }) => {
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between items-center px-4 sm:px-8 pt-4 pb-12 overflow-hidden bg-[#F4F3EF]"
+      className="relative min-h-screen flex flex-col justify-between items-center px-4 sm:px-8 pt-4 pb-10 overflow-hidden bg-[#F4F4F0]"
     >
-      {/* ── TOP STUDIO BAR (Frame 01: 00s) ── */}
-      <div className="w-full max-w-7xl mx-auto flex items-center justify-between py-3 border-b border-black/5 text-xs font-mono">
-        <div className="flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="font-grotesk font-bold tracking-wider text-neutral-950 uppercase">
-            {PERSONAL_DATA.name}
+      {/* ── TOP COMIC STATUS STRIP ── */}
+      <div className="w-full max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 py-2.5 px-4 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-xs font-mono font-bold">
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 bg-emerald-500 animate-ping" />
+          <span className="uppercase text-black">
+            {PERSONAL_DATA.name.toUpperCase()}
           </span>
-          <span className="hidden sm:inline text-neutral-400 font-normal">
-            — BENGALURU, IN [12.9716° N, 77.5946° E]
+          <span className="hidden sm:inline text-neutral-500 font-normal">
+            — {PERSONAL_DATA.location.toUpperCase()}
           </span>
         </div>
 
-        <div className="flex items-center gap-4 sm:gap-6">
-          <div className="hidden md:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-200/80 text-[11px] font-mono text-neutral-800 border border-neutral-300">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
-            <span>{PERSONAL_DATA.status}</span>
+        <div className="flex items-center gap-3">
+          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-[#FAFF00] border border-black text-[11px] font-mono font-bold text-black">
+            <span>55% RECRUITER · 45% FREELANCE</span>
           </div>
-
-          <button
-            onClick={() => {
-              if (onTalkClick) onTalkClick();
-              else {
-                const el = document.getElementById('contact');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
-            className="px-4 py-1.5 rounded-full bg-neutral-950 text-white hover:bg-neutral-800 text-xs font-grotesk font-semibold tracking-wider uppercase transition-all shadow-sm active:scale-95"
-          >
-            LET'S TALK
-          </button>
+          <span className="hidden md:inline-flex items-center gap-1 text-[11px] text-neutral-600">
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+            <span>CGPA: {PERSONAL_DATA.education.cgpa}</span>
+          </span>
         </div>
       </div>
 
-      {/* ── TOP COMPOSITION: 3D SIGNATURE IDENTITY OBJECT & SURROUNDING ANCHORS ── */}
-      <div className="relative w-full flex flex-col items-center justify-center mt-6 sm:mt-10">
+      {/* ── MAIN HERO STAGE ── */}
+      <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center mt-6 sm:mt-10 z-10">
+        {/* Top Comic Tag */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-xs font-mono font-bold uppercase tracking-wider text-black mb-5"
+        >
+          <span className="w-2 h-2 bg-[#FF0000]" />
+          <span>FULL-STACK DEVELOPER · AI BUILDER · FREELANCER</span>
+        </motion.div>
+
+        {/* Comic Headline */}
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-grotesk tracking-tight text-black leading-[1.05] max-w-5xl"
+        >
+          I BUILD DIGITAL PRODUCTS AND{' '}
+          <span className="relative inline-block px-2 sm:px-3 bg-[#FAFF00] border-2 sm:border-[3px] border-black shadow-[4px_4px_0px_#000] rotate-[-1deg] text-black">
+            EXPERIMENT
+          </span>{' '}
+          WITH AI.
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-6 text-base sm:text-lg md:text-xl font-body text-neutral-800 max-w-2xl font-medium leading-relaxed"
+        >
+          3rd-year Computer Science undergraduate from Bengaluru building scalable full-stack applications, intelligent AI systems, and shipping high-converting products for clients.
+        </motion.p>
+
+        {/* Action Button Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 font-mono font-bold text-xs sm:text-sm uppercase tracking-wider"
+        >
+          {/* 1. Primary: VIEW MY WORK */}
+          <button
+            onClick={() => {
+              if (onExploreClick) onExploreClick();
+              else scrollTo('work');
+            }}
+            className="comic-btn-black px-5 py-3 flex items-center gap-2 cursor-pointer"
+          >
+            <span>VIEW MY WORK</span>
+            <ArrowDown className="w-4 h-4" />
+          </button>
+
+          {/* 2. Secondary: WORK WITH ME */}
+          <button
+            onClick={() => {
+              if (onTalkClick) onTalkClick();
+              else scrollTo('contact');
+            }}
+            className="comic-btn-yellow px-5 py-3 flex items-center gap-2 cursor-pointer"
+          >
+            <span>WORK WITH ME</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </button>
+
+          {/* 3. Utility: DOWNLOAD RESUME */}
+          <a
+            href={PERSONAL_DATA.socials.resumeUrl}
+            className="comic-btn-white px-5 py-3 flex items-center gap-2 cursor-pointer"
+          >
+            <FileText className="w-4 h-4" />
+            <span>DOWNLOAD RESUME</span>
+          </a>
+        </motion.div>
+      </div>
+
+      {/* ── 3D SIGNATURE IDENTITY OBJECT WITH COMIC ORBIT TAGS ── */}
+      <div className="relative w-full max-w-3xl flex items-center justify-center mt-6 sm:mt-8">
         <div className="relative flex items-center justify-center">
           {/* Central 3D Canvas */}
           <HeroIdentity3D className="z-10" />
 
-          {/* Micro Orbit Badge 1: Top Left - AI Systems */}
+          {/* Orbit Tag 1: Top Left - AI Systems */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, x: -20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="absolute -top-3 left-4 sm:-left-6 md:-left-12 z-20 flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/95 backdrop-blur-md border border-black/10 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:scale-110 transition-transform cursor-pointer group"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="absolute -top-1 left-2 sm:-left-8 md:-left-12 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
           >
-            <Cpu className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-800 group-hover:text-purple-600 transition-colors" />
-            <span className="sr-only">AI Systems</span>
+            <Cpu className="w-3.5 h-3.5 text-purple-600" />
+            <span>AI SYSTEMS</span>
           </motion.div>
 
-          {/* Micro Orbit Badge 2: Bottom Left - Full Stack */}
+          {/* Orbit Tag 2: Bottom Left - Full Stack */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, x: -30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="absolute bottom-6 left-2 sm:-left-10 md:-left-16 z-20 flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/95 backdrop-blur-md border border-black/10 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:scale-110 transition-transform cursor-pointer group"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="absolute bottom-6 left-0 sm:-left-10 md:-left-16 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
           >
-            <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-800 group-hover:text-blue-600 transition-colors" />
-            <span className="sr-only">Full Stack</span>
+            <Layers className="w-3.5 h-3.5 text-blue-600" />
+            <span>FULL-STACK</span>
           </motion.div>
 
-          {/* Micro Orbit Badge 3: Top Right - Experiments */}
+          {/* Orbit Tag 3: Top Right - Live Ship */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, x: 20 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="absolute -top-2 right-4 sm:-right-6 md:-right-12 z-20 flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/95 backdrop-blur-md border border-black/10 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:scale-110 transition-transform cursor-pointer group"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="absolute -top-1 right-2 sm:-right-8 md:-right-12 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-[#FAFF00] border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
           >
-            <Terminal className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-800 group-hover:text-emerald-600 transition-colors" />
-            <span className="sr-only">Experiments</span>
+            <Sparkles className="w-3.5 h-3.5 text-black" />
+            <span>FAST SHIPPER</span>
           </motion.div>
 
-          {/* Micro Orbit Badge 4: Bottom Right - Craft */}
+          {/* Orbit Tag 4: Bottom Right - WebRTC SFU */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, x: 30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="absolute bottom-8 right-2 sm:-right-10 md:-right-16 z-20 flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/95 backdrop-blur-md border border-black/10 shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:scale-110 transition-transform cursor-pointer group"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="absolute bottom-6 right-0 sm:-right-10 md:-right-16 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
           >
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-800 group-hover:text-amber-500 transition-colors" />
-            <span className="sr-only">Craft</span>
+            <Terminal className="w-3.5 h-3.5 text-emerald-600" />
+            <span>WEBRTC SFU</span>
           </motion.div>
         </div>
       </div>
 
-      {/* ── CENTER COMPOSITION: ENORMOUS EDITORIAL HEADLINE & STATEMENT ── */}
-      <div className="relative w-full max-w-6xl mx-auto text-center flex flex-col items-center mt-4 sm:mt-6 z-20">
-        {/* Tiny Studio Category Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-200/80 border border-neutral-300 text-[11px] font-mono uppercase tracking-widest text-neutral-700 mb-4 sm:mb-6"
-        >
-          <Compass className="w-3.5 h-3.5 text-neutral-800" />
-          <span>SECTION 01 // EXHIBITION ENTRANCE</span>
-        </motion.div>
-
-        {/* Enormous Original Headline (clamp up to 180px) */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-6xl md:text-8xl lg:text-[7.5rem] xl:text-[8.5rem] font-bold tracking-tight text-neutral-950 leading-[0.90] select-none font-grotesk uppercase"
-        >
-          <span className="block">BUILDING THINGS</span>
-          <span className="block text-neutral-900">THAT SHOULDN'T</span>
-          <span className="font-editorial italic font-normal tracking-tight text-neutral-800 block mt-1 lowercase text-5xl sm:text-7xl md:text-9xl lg:text-[8.5rem]">
-            exist yet.
+      {/* ── BOTTOM CREDENTIAL TICKER ── */}
+      <div className="w-full max-w-7xl mx-auto mt-6 pt-4 border-t-2 border-black flex flex-wrap items-center justify-between gap-3 text-xs font-mono font-bold text-black">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+          <span className="px-2 py-1 bg-white border border-black shadow-[2px_2px_0px_#000]">
+            📍 BENGALURU, INDIA
           </span>
-        </motion.h1>
+          <span className="px-2 py-1 bg-white border border-black shadow-[2px_2px_0px_#000]">
+            🎓 ALLIANCE UNIVERSITY · 8.02 CGPA
+          </span>
+          <span className="px-2 py-1 bg-[#FAFF00] border border-black shadow-[2px_2px_0px_#000]">
+            ⚡ 50+ DSA PROBLEMS
+          </span>
+          <span className="px-2 py-1 bg-white border border-black shadow-[2px_2px_0px_#000]">
+            🏆 4X FINALIST · 1X WINNER
+          </span>
+        </div>
 
-        {/* Understated Supporting Copy */}
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-          className="mt-6 sm:mt-8 max-w-2xl text-sm sm:text-base md:text-lg text-neutral-600 font-normal leading-relaxed text-center px-4"
-        >
-          {PERSONAL_DATA.heroSubheadline}
-        </motion.p>
-      </div>
-
-      {/* ── BOTTOM EXPLORATION STRIP & PEEK TEASER ── */}
-      <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.5 }}
-        className="relative w-full max-w-6xl mx-auto mt-10 sm:mt-14 flex flex-col items-center"
-      >
         <button
-          onClick={onExploreClick}
-          className="group flex flex-col items-center gap-1.5 text-neutral-500 hover:text-neutral-950 transition-colors mb-6 cursor-pointer"
+          onClick={() => scrollTo('recruiter-snapshot')}
+          className="inline-flex items-center gap-1.5 text-xs text-neutral-800 hover:text-black hover:underline cursor-pointer"
         >
-          <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 group-hover:text-neutral-700">
-            SCROLL TO ENTER EXHIBITION
-          </span>
-          <motion.div
-            animate={{ y: [0, 5, 0] }}
-            transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-          >
-            <ArrowDown className="w-4 h-4 text-neutral-800" />
-          </motion.div>
+          <span>QUICK RECRUITER SNAPSHOT</span>
+          <ArrowDown className="w-3.5 h-3.5" />
         </button>
-
-        {/* Peek Cards Strip - Project Teaser Previews */}
-        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 opacity-80 hover:opacity-100 transition-opacity">
-          <div className="h-14 sm:h-18 rounded-2xl bg-white border border-black/10 shadow-sm p-3 flex items-center justify-between">
-            <span className="text-xs font-semibold font-grotesk text-neutral-900">OPUS</span>
-            <span className="text-[10px] font-mono text-neutral-400">01 / AI OS</span>
-          </div>
-          <div className="h-14 sm:h-18 rounded-2xl bg-white border border-black/10 shadow-sm p-3 flex items-center justify-between">
-            <span className="text-xs font-semibold font-grotesk text-neutral-900">OpportunX</span>
-            <span className="text-[10px] font-mono text-neutral-400">02 / PLATFORM</span>
-          </div>
-          <div className="hidden md:flex h-14 sm:h-18 rounded-2xl bg-white border border-black/10 shadow-sm p-3 items-center justify-between">
-            <span className="text-xs font-semibold font-grotesk text-neutral-900">NeoScholar AI</span>
-            <span className="text-[10px] font-mono text-neutral-400">03 / NEO4J GRAPH</span>
-          </div>
-          <div className="hidden md:flex h-14 sm:h-18 rounded-2xl bg-white border border-black/10 shadow-sm p-3 items-center justify-between">
-            <span className="text-xs font-semibold font-grotesk text-neutral-900">TravelSphere</span>
-            <span className="text-[10px] font-mono text-neutral-400">04 / INTELLIGENCE</span>
-          </div>
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

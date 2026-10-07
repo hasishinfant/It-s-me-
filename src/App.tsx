@@ -5,24 +5,23 @@ import { EditorialNavbar } from './components/ui/EditorialNavbar';
 import { ScrollAnnotations } from './components/ui/ScrollAnnotations';
 
 import { EditorialHero } from './components/sections/EditorialHero';
+import { RecruiterSnapshotSection } from './components/sections/RecruiterSnapshotSection';
 import { WhatIBuildSection } from './components/sections/WhatIBuildSection';
-import { StackSection } from './components/sections/StackSection';
-import { BuildingInPublicSection } from './components/sections/BuildingInPublicSection';
-import { ProofOfWorkSection } from './components/sections/ProofOfWorkSection';
 import { SelectedWorkSection } from './components/sections/SelectedWorkSection';
 import { ProjectIndexSection } from './components/sections/ProjectIndexSection';
-import { OpusCaseStudySection } from './components/sections/OpusCaseStudySection';
-import { ExperimentsLabSection } from './components/sections/ExperimentsLabSection';
-import { SocialCommunitySection } from './components/sections/SocialCommunitySection';
+import { ProofOfWorkSection } from './components/sections/ProofOfWorkSection';
+import { LeadershipEducationSection } from './components/sections/LeadershipEducationSection';
+import { FreelanceServicesSection } from './components/sections/FreelanceServicesSection';
+import { StackSection } from './components/sections/StackSection';
 import { AboutSection } from './components/sections/AboutSection';
 import { LetsBuildSection } from './components/sections/LetsBuildSection';
 import { FooterSection } from './components/sections/FooterSection';
 
 export const App: React.FC = () => {
   useEffect(() => {
-    // Initialize Lenis smooth scroll for physical, luxurious momentum
+    // Initialize Lenis smooth scroll for physical, snappy momentum
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
@@ -49,64 +48,57 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F3EF] flex flex-col items-center justify-start text-[#0A0A0A] selection:bg-[#0A0A0A] selection:text-white antialiased">
-      {/* Precision Playful Desktop Cursor with Floating 3D Previews */}
+    <div className="min-h-screen bg-[#F4F4F0] flex flex-col items-center justify-start text-[#000000] selection:bg-[#FAFF00] selection:text-[#000000] antialiased">
+      {/* Precision Playful Desktop Cursor */}
       <PlayfulCursor />
 
-      {/* Modern Web Guidance: Scroll Progress Bar & Studio Coordinates */}
+      {/* Top Scroll Indicator & Status Annotation */}
       <ScrollAnnotations />
 
-      {/* ── ART-DIRECTED VIEWPORT SHELL (1440px Max Width) ── */}
+      {/* ── COMIC-BRUTALIST VIEWPORT CONTAINER (1440px Max Width) ── */}
       <div className="viewport-shell w-full max-w-[1440px] relative transition-all duration-300">
-        {/* Restrained Edge Rails */}
-        <div className="accent-rail-left hidden sm:block" />
-        <div className="accent-rail-right hidden sm:block" />
-
-        {/* Minimal Editorial Top Navigation Bar */}
+        {/* Navigation Bar */}
         <EditorialNavbar onContactClick={() => handleScrollToSection('contact')} />
 
-        {/* ── SEAMLESS NARRATIVE CHAPTERS IN INTENTIONAL LIGHT / DARK RHYTHM ── */}
+        {/* ── 55% RECRUITER · 45% FREELANCE COMIC NARRATIVE FLOW ── */}
         <main className="relative w-full overflow-hidden">
-          {/* 01: [LIGHT] HERO — Identity, Original Headline & Signature 3D Identity Object */}
+          {/* 01: HERO — Headline, 3 CTA Buttons, Signature 3D Kinetic Object, Credentials */}
           <EditorialHero
-            onExploreClick={() => handleScrollToSection('what-i-build')}
+            onExploreClick={() => handleScrollToSection('work')}
             onTalkClick={() => handleScrollToSection('contact')}
           />
 
-          {/* 02: [LIGHT] WHAT I BUILD — Editorial Typography with Interactive Hover Artifacts */}
+          {/* 02: RECRUITER SNAPSHOT — 5-Second Scan with CGPA 8.02, Bengaluru, Quick Resume/Github Links */}
+          <RecruiterSnapshotSection />
+
+          {/* 03: WHAT I'M BUILDING RIGHT NOW — 5 Core Engineering Domains */}
           <WhatIBuildSection />
 
-          {/* 03: [LIGHT] STACK SECTION — Restrained Minimalist Technical Index */}
-          <StackSection />
-
-          {/* 04: [LIGHT] BUILDING IN PUBLIC — "I don't just build. I share the process." Retros & Takeaways */}
-          <BuildingInPublicSection />
-
-          {/* 05: [DARK] PROOF OF WORK — Exhibition Wall with Vertical Timeline */}
-          <ProofOfWorkSection />
-
-          {/* 06: [LIGHT] SELECTED WORK — Oversized Dimensional Cards (OpportunX, OPUS, NeoScholar, TravelSphere, CivicFlow) */}
+          {/* 04: SELECTED WORK — OpportunX, Rakshatantra AI, TravelSphere, Videoy, OceanRaksha */}
           <SelectedWorkSection />
 
-          {/* 07: [LIGHT] PROJECT INDEX — Editorial Archive Table with Cursor-Following Previews */}
+          {/* 05: PROJECT ARCHIVE — Table of Builds with Direct Repo Links */}
           <ProjectIndexSection />
 
-          {/* 08: [DARK] FEATURED CASE STUDY — OPUS: "My attempt at building Jarvis" + Interactive 3D Architecture Graph */}
-          <OpusCaseStudySection />
+          {/* 06: PROOF OF WORK — 50+ DSA, 4x Finalist, 1x Winner, Bronze Medal, Top 52 VoyageHack */}
+          <ProofOfWorkSection />
 
-          {/* 09: [LIGHT] EXPERIMENTS — "Things I'm still figuring out" Irregular Laboratory Bench */}
-          <ExperimentsLabSection />
+          {/* 07: LEADERSHIP & EDUCATION — SIG Web App Co-Lead, Tech^Ferrs Community, Alliance University */}
+          <LeadershipEducationSection />
 
-          {/* 10: [LIGHT] SOCIAL & COMMUNITY — Clean Monochrome Ecosystem Marks */}
-          <SocialCommunitySection />
+          {/* 08: FREELANCE SERVICES — 5 Client Services, 4-Step Ship Process, Ready to Ship CTA */}
+          <FreelanceServicesSection onStartProjectClick={() => handleScrollToSection('contact')} />
 
-          {/* 11: [LIGHT] ABOUT — "Still learning. Still building." Human First-Person Statement */}
+          {/* 09: TECHNICAL ARSENAL — Categorized Skills (Languages, Frontend, Backend, Cloud, AI, CS) */}
+          <StackSection />
+
+          {/* 10: ABOUT HASISH — Builder Identity, Manifesto, LinkedIn Journey */}
           <AboutSection />
 
-          {/* 12: [DARK] LET'S BUILD / FINAL CTA — Giant Editorial CTA with Returning 3D Identity Object */}
+          {/* 11: LET'S CREATE SOMETHING BOLD — Electric Yellow (#FAFF00) Contact Hub with 3 Intent Paths */}
           <LetsBuildSection />
 
-          {/* 13: [DARK] FOOTER — Minimalist Editorial Footer with Verified Public Links */}
+          {/* 12: FOOTER — Comic-Brutalist Footer with Socials & Top Return */}
           <FooterSection onScrollToTop={() => handleScrollToSection('hero')} />
         </main>
       </div>

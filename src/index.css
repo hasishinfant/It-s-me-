@@ -13,12 +13,122 @@
 }
 
 html, body {
-  background: #F4F3EF;
-  color: #0A0A0A;
-  font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
+  background: #F4F4F0;
+  color: #000000;
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+}
+
+/* ═══════════════════════════════════════════
+   COMIC NEO-BRUTALIST DESIGN UTILITIES
+   ═══════════════════════════════════════════ */
+
+.comic-card {
+  background: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.comic-card-lg {
+  background: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 8px 8px 0px #000000;
+}
+
+.comic-card-yellow {
+  background: #FAFF00;
+  border: 3px solid #000000;
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.comic-card-dark {
+  background: #0A0A0A;
+  color: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.comic-btn-yellow {
+  background: #FAFF00;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.comic-btn-yellow:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px #000000;
+}
+
+.comic-btn-yellow:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.comic-btn-black {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.comic-btn-black:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px #000000;
+}
+
+.comic-btn-black:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.comic-btn-white {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.comic-btn-white:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0px #000000;
+}
+
+.comic-btn-white:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.comic-badge-red {
+  background: #FF0000;
+  color: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  font-weight: 800;
+}
+
+.comic-badge-yellow {
+  background: #FAFF00;
+  color: #000000;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  font-weight: 800;
+}
+
+.comic-badge-blue {
+  background: #0044FF;
+  color: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  font-weight: 800;
 }
 
 /* ═══════════════════════════════════════════

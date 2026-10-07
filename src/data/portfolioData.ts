@@ -10,6 +10,7 @@ export interface Project {
   demoUrl?: string;
   githubUrl?: string;
   devpostUrl?: string;
+  linkedinPostUrl?: string;
   badge: string;
   role: string;
   year: string;
@@ -22,323 +23,293 @@ export interface Project {
   featured: boolean;
 }
 
-export interface TimelineItem {
-  year: string;
-  title: string;
-  type: string;
-  organization?: string;
-  description: string;
-  metrics?: string;
-}
-
-export interface TimelineMilestone {
-  year: string;
-  title: string;
-  role: string;
-  organization?: string;
-  description: string;
-  achievements: string[];
-  category: string;
-  islandTheme: string;
-}
-
-export interface Testimonial {
+export interface ServiceItem {
   id: string;
-  name: string;
-  role: string;
-  company: string;
-  content: string;
-  avatar: string;
+  number: string;
+  title: string;
+  description: string;
+  deliverables: string[];
+  tag: string;
 }
 
-export interface LabExperiment {
-  id: string;
+export interface FreelanceStep {
+  step: string;
   title: string;
-  category: string;
-  status: string;
   description: string;
-  tech: string[];
-  codeSnippet?: string;
-  annotation: string;
 }
 
 export const PERSONAL_DATA = {
   name: "Hasish Infant",
-  role: "Full-Stack Developer & AI Builder",
+  role: "Full-Stack Developer, AI Builder & Freelancer",
   title: "Full-Stack Developer & AI Builder",
   location: "Bengaluru, India",
-  headline: "BUILDING THINGS THAT SHOULDN'T EXIST YET.",
-  tagline: "BUILDING THINGS THAT SHOULDN'T EXIST YET.",
-  mission: "I build products, experiments and systems while learning in public. Combining AI, automation, and tactile design.",
-  heroSubheadline: "Full-stack developer and AI builder from Bengaluru. I build products, experiments and systems while learning in public.",
-  status: "AVAILABLE FOR INTERNSHIPS",
-  bioStatement: "STILL LEARNING. STILL BUILDING.",
-  bioDescription: "I'm Hasish, a Computer Science student and full-stack developer from Bengaluru. I like taking an idea, turning it into a system, and seeing how far I can push it. Most of what I know came from building, breaking things, hackathons, open-source exploration, and sharing the process.",
-  roles: ["Full Stack Developer", "AI Builder", "Creative Engineer"],
-  traits: ["Curiosity", "Craftsmanship", "Speed", "Systems Thinking"],
+  headline: "I BUILD DIGITAL PRODUCTS AND EXPERIMENT WITH AI.",
+  tagline: "FULL-STACK DEVELOPER · AI BUILDER · FREELANCER",
+  heroSubheadline: "I'm a Computer Science undergraduate from Bengaluru building full-stack applications, AI systems and digital experiences.",
+  mission: "Building scalable web applications, autonomous AI agents, and shipping products for clients.",
+  status: "OPEN TO INTERNSHIPS · AVAILABLE FOR FREELANCE",
+  education: {
+    institution: "Alliance University",
+    school: "Alliance School of Advanced Computing",
+    degree: "B.Tech Computer Science and Engineering",
+    duration: "2024 — 2028",
+    cgpa: "8.02 / 10",
+    location: "Bengaluru, India"
+  },
+  bioStatement: "WHO IS HASISH?",
+  bioDescription: "I'm a Computer Science student from Bengaluru who likes turning ideas into working software. I learn by building. Some projects are serious. Some are experiments. Some fail. That is usually where the interesting part starts.",
+  bioTags: ["STUDENT", "BUILDER", "FREELANCER", "LEARNER"],
   socials: {
     github: "https://github.com/hasishinfant",
     linkedin: "https://www.linkedin.com/in/hasish-infant",
     topmate: "https://topmate.io/hasish_infant",
     website: "https://hasishinfant.dev",
     email: "hasishinfant@gmail.com",
+    resumeUrl: "#resume",
     twitter: "https://twitter.com/hasishinfant",
-    calendly: "https://topmate.io/hasish_infant",
+    calendly: "https://topmate.io/hasish_infant"
   }
 };
 
-export const PROJECTS: Project[] = [
+export const RECRUITER_SNAPSHOT = [
+  { label: "LOCATION", value: "Bengaluru, India", highlight: false },
+  { label: "DEGREE", value: "B.Tech Computer Science", highlight: false },
+  { label: "ACADEMICS", value: "CGPA 8.02 / 10", highlight: true },
+  { label: "CORE FOCUS", value: "Full-Stack Development", highlight: false },
+  { label: "SPECIALTY", value: "AI & System Automation", highlight: false },
+  { label: "STATUS", value: "Open to Internships", highlight: true }
+];
+
+export const CURRENT_EXPLORATIONS = [
   {
-    id: "opus",
-    name: "OPUS",
-    tagline: "Personal AI operating system experiment with 3D orbital interface",
-    description: "An AI layer between the user and their computer. Translates voice commands into autonomous macOS interactions, application launching, and visual feedback through an interactive 3D orbital interface.",
-    longDescription: "OPUS reimagines human-computer interaction by replacing rigid desktop windows with a conversational 3D orbital control plane. It integrates real-time voice recognition, intent parsing, agent dispatch, and native OS automation.",
-    category: "AI / SYSTEM",
-    techStack: ["Next.js", "Three.js", "TypeScript", "Gemini", "Tailwind CSS"],
-    metrics: ["Sub-400ms Voice Intent Routing", "Native macOS Bridge", "Interactive 3D Orbital UI"],
-    githubUrl: "https://github.com/hasishinfant",
-    badge: "HERO PROJECT",
-    role: "BUILDER",
-    year: "2026",
-    accentColor: "#9333EA",
-    planetColor: "#9333EA",
-    architecture: "Voice Input → Gemini Intent Classification → Agent Dispatcher → Native macOS Tool Execution → 3D Three.js Visual Feedback",
-    challenges: "Synchronizing low-latency voice telemetry with real-time 60 FPS Three.js orbital physics and local process orchestration.",
-    lessons: "Implemented event-driven DAG execution queues with deterministic fallback states to ensure fluid UI responsiveness.",
-    featured: true
+    id: "full-stack",
+    title: "FULL-STACK",
+    description: "Production web applications using React, Next.js, Node.js, PostgreSQL, and serverless AWS.",
+    badge: "CORE STRENGTH"
   },
+  {
+    id: "ai-systems",
+    title: "AI SYSTEMS",
+    description: "Autonomous reasoning agents, RAG document pipelines, multimodal vision and intent routers.",
+    badge: "ACTIVE BUILDS"
+  },
+  {
+    id: "product-dev",
+    title: "PRODUCT DEVELOPMENT",
+    description: "Designing end-to-end user journeys, solving real-world friction, and building user-centric interfaces.",
+    badge: "FOUNDER MINDSET"
+  },
+  {
+    id: "3d-web",
+    title: "3D WEB",
+    description: "Interactive WebGL, React Three Fiber, hardware-accelerated shaders, and tactile spatial interfaces.",
+    badge: "INTERACTIVE"
+  },
+  {
+    id: "automation",
+    title: "AUTOMATION",
+    description: "Distributed scrapers, queue workers, IoT telemetry pipelines, and native macOS process bridges.",
+    badge: "HIGH LEVERAGE"
+  }
+];
+
+export const PROJECTS: Project[] = [
   {
     id: "opportunx",
     name: "OPPORTUNX",
-    tagline: "AI-powered opportunity discovery and matching platform",
-    description: "An intelligent platform aggregating internships, hackathons, and research grants globally. Features real-time multi-source data ingestion, AI-filtered matching, and dimensional card interaction.",
-    longDescription: "OpportunX solves the fragmented student opportunity landscape by continuously indexing verified engineering programs, hackathons, and venture grants with semantic skill matching.",
+    tagline: "AI-POWERED CAREER COPILOT",
+    description: "An AI-powered career platform that analyzes resumes and generates personalized career roadmaps based on skills and alignment.",
+    longDescription: "OpportunX solves the fragmented student career landscape. It parses real resume skills against thousands of opportunities, generating deterministic career roadmaps and customized internship matches.",
     category: "CAREER TECH",
-    techStack: ["React", "Python", "AWS Lambda", "DynamoDB", "S3", "CloudFront"],
+    techStack: ["AWS Lambda", "API Gateway", "DynamoDB", "CloudFront", "React"],
     metrics: ["12,000+ Opportunities Parsed", "Automated Daily Pipeline", "Serverless AWS Scale"],
+    githubUrl: "https://github.com/hasishinfant/OpportuneX-ai.git",
+    demoUrl: "https://d1hbuq3aci83lo.cloudfront.net",
     devpostUrl: "https://devpost.com/software/opportunx",
-    githubUrl: "https://github.com/hasishinfant",
     badge: "FEATURED BUILD",
-    role: "FULL STACK",
+    role: "FULL STACK & CLOUD",
     year: "2026",
-    accentColor: "#3B82F6",
-    planetColor: "#3B82F6",
-    architecture: "Event-driven Python crawlers on AWS Lambda writing to DynamoDB with CloudFront edge caching and React dimensional client.",
-    challenges: "Structuring unnormalized multi-source data streams without causing high serverless invocation latency.",
-    lessons: "Designed schema validation with strict dead-letter queue routing and warm Lambda caching layers.",
+    accentColor: "#FAFF00",
+    planetColor: "#FAFF00",
+    architecture: "Event-driven Python crawlers on AWS Lambda writing to DynamoDB with API Gateway routing and CloudFront edge CDN.",
+    challenges: "Handling real-time resume parsing without serverless cold start timeouts.",
+    lessons: "Implemented optimized lightweight Python runtimes with pre-cached embeddings.",
     featured: true
   },
   {
-    id: "neoscholar",
-    name: "NEOSCHOLAR AI",
-    tagline: "Research intelligence platform built during a 2-hour Neo4j mini-hack",
-    description: "Transforms dense academic papers into interconnected knowledge graphs. Maps relationships, concepts, and citation lineages using Neo4j graph theory and interactive node visualization.",
-    longDescription: "Engineered under 2-hour hackathon constraints. Reads scientific literature, synthesizes core conceptual nodes, and renders dynamic knowledge relationship webs.",
-    category: "RESEARCH AI",
-    techStack: ["React", "TypeScript", "Neo4j", "Python", "LangChain"],
-    metrics: ["Built in 2-Hour Mini-Hack", "Knowledge Graph Extraction", "Citation Traversal"],
-    githubUrl: "https://github.com/hasishinfant",
-    badge: "NEO4J MINI-HACK",
-    role: "BUILDER",
+    id: "rakshatantra",
+    name: "RAKSHATANTRA AI",
+    tagline: "WORKFORCE SAFETY INTELLIGENCE",
+    description: "Workplace safety monitoring using IoT signals, computer vision and AI. Bronze Medal winner at Code Veda Hackathon.",
+    longDescription: "Engineered during the Code Veda Hackathon to safeguard industrial laborers. Combines edge IoT sensory data with computer vision models on Microsoft Azure to detect safety violations and hazard exposure in real time.",
+    category: "SAFETY & VISION AI",
+    techStack: ["IoT", "Computer Vision", "AI", "Microsoft Azure", "Python"],
+    metrics: ["Bronze Medal Winner", "Code Veda Hackathon", "Real-Time Hazard Alerting"],
+    githubUrl: "https://github.com/hasishinfant/Rakshatantra-AI.git",
+    badge: "BRONZE MEDAL // CODE VEDA",
+    role: "AI & IOT ARCHITECT",
     year: "2026",
-    accentColor: "#10B981",
-    planetColor: "#10B981",
-    architecture: "Document Ingestion → Entity & Relationship Extraction → Neo4j Cypher Graph Engine → Interactive Spatial Visualizer",
-    challenges: "Rapid entity-resolution under extreme 120-minute hackathon deadline pressure.",
-    lessons: "Focused on graph schema simplicity and declarative Cypher queries over sprawling microservices.",
+    accentColor: "#FF0000",
+    planetColor: "#FF0000",
+    architecture: "Edge sensor stream + OpenCV camera frames processed through Azure AI inference nodes triggering instantaneous alerts.",
+    challenges: "Synchronizing high-frequency IoT telemetry with computer vision frame rates.",
+    lessons: "Separated sensor anomaly queues from vision classification loops to prevent backpressure.",
     featured: true
   },
   {
     id: "travelsphere",
     name: "TRAVELSPHERE",
-    tagline: "Data-driven travel decision intelligence and risk confidence engine",
-    description: "A comprehensive travel decision system that synthesizes destination risk factors, weather patterns, transport viability, health advisories, and budget constraints into a singular unified confidence score.",
-    longDescription: "Replaces 20 open browser tabs with one high-clarity intelligence dashboard. Users evaluate destination suitability via algorithmic multi-criteria decision models.",
+    tagline: "TRAVEL RISK INTELLIGENCE",
+    description: "An 8-factor destination confidence scoring engine for more risk-aware travel planning. Top 52 National Finalist at TBO VoyageHack 3.0.",
+    longDescription: "Replaces scattered travel tabs with a unified intelligence dashboard. Synthesizes weather patterns, geopolitical risk, transport reliability, and health advisories into an 8-factor confidence score.",
     category: "TRAVEL INTELLIGENCE",
     techStack: ["React", "TypeScript", "AI Decision Models", "Tailwind CSS"],
-    metrics: ["Multi-Factor Confidence Scoring", "Real-time Risk Aggregation", "Sub-second Analysis"],
-    githubUrl: "https://github.com/hasishinfant",
-    badge: "DECISION SUPPORT",
+    metrics: ["Top 52 Nationally", "TBO VoyageHack 3.0", "8-Factor Confidence Scoring"],
+    githubUrl: "https://github.com/hasishinfant/tbo.git",
+    linkedinPostUrl: "https://www.linkedin.com/posts/hasish-infant_traveltech-ai-productengineering-activity-7434099428321394688-Ibyq",
+    badge: "TOP 52 NATIONALLY // TBO",
     role: "PRODUCT / ENGINEERING",
     year: "2026",
-    accentColor: "#F59E0B",
-    planetColor: "#F59E0B",
-    architecture: "Multi-parameter weighted scoring algorithm evaluating climate, geo-security, logistics, and budget telemetry.",
-    challenges: "Balancing competing priority weights (e.g. low budget vs. high transport convenience) into an intuitive single score.",
-    lessons: "Used normalized percentile scaling with transparent breakdowns so users can inspect score provenance.",
+    accentColor: "#0044FF",
+    planetColor: "#0044FF",
+    architecture: "Multi-parameter weighted scoring algorithm calculating risk indices and rendering an interactive confidence interface.",
+    challenges: "Normalizing disparate international datasets into a single intuitive metric.",
+    lessons: "Implemented percentile vector scaling with transparent breakdown provenance.",
     featured: true
   },
   {
-    id: "civicflow",
-    name: "CIVICFLOW",
-    tagline: "Smart civic issue response and municipal resource optimization",
-    description: "A spatial city operations system that aggregates citizen-reported infrastructure issues, calculates urgency priority, and optimizes municipal response team dispatch in real time.",
-    longDescription: "Modernizes municipal civic operations by treating city maintenance like a distributed incident management queue. Connects citizen tickets directly to routing algorithms.",
-    category: "CIVIC TECH",
-    techStack: ["React", "TypeScript", "GeoJSON", "Node.js", "REST APIs"],
-    metrics: ["Spatial City Operations UI", "Automated Priority Queue", "Resource Optimization"],
-    githubUrl: "https://github.com/hasishinfant",
-    badge: "MUNICIPAL SYSTEMS",
-    role: "PRODUCT / ENGINEERING",
+    id: "videoy",
+    name: "VIDEOY",
+    tagline: "REAL-TIME AI VIDEO INTELLIGENCE",
+    description: "A multi-party video platform using WebRTC and Mediasoup SFU with AI-generated meeting intelligence and automated summaries.",
+    longDescription: "High-throughput video conferencing engine with sub-100ms latency. Integrates a real-time AI copilot that transcribes, extracts actionable items, and generates contextual meeting summaries.",
+    category: "VIDEO & SFU PLATFORM",
+    techStack: ["WebRTC", "Mediasoup SFU", "Node.js", "AI Summary API"],
+    metrics: ["Sub-100ms Video Latency", "Mediasoup Selective Forwarding", "Real-Time AI Copilot"],
+    githubUrl: "https://github.com/hasishinfant/Videoy.git",
+    badge: "SFU WEBRTC ENGINE",
+    role: "FULL STACK & WEBRTC",
     year: "2026",
-    accentColor: "#EC4899",
-    planetColor: "#EC4899",
-    architecture: "Spatial incident clustering engine prioritizing severity, density, and department availability across municipal grids.",
-    challenges: "Visualizing high-density geospatial point clusters without degrading browser DOM performance.",
-    lessons: "Implemented viewport-bounded spatial indexing with canvas-accelerated marker rendering.",
+    accentColor: "#10B981",
+    planetColor: "#10B981",
+    architecture: "Selective Forwarding Unit (SFU) architecture with Mediasoup C++ worker threads orchestrated via Node.js.",
+    challenges: "Managing bandwidth allocation across fluctuating network connections.",
+    lessons: "Designed dynamic simulcast stream switching based on consumer viewport visibility.",
     featured: true
   },
   {
-    id: "attendq",
-    name: "ATTENDQ",
-    tagline: "Geofenced attendance verification and real-time classroom telemetry",
-    description: "Lightweight mobile and web attendance verification for educational institutions with cryptographic geofence validation and instant reporting.",
-    longDescription: "Eliminates attendance fraud with rolling time-based credentials and sub-meter location boundaries.",
-    category: "EDTECH",
-    techStack: ["React Native", "TypeScript", "Node.js", "PostgreSQL"],
-    metrics: ["Sub-2s Check-in Speed", "Cryptographic Validation", "Zero-Proxy Rate"],
-    githubUrl: "https://github.com/hasishinfant",
-    badge: "MOBILE SYSTEM",
-    role: "FULL STACK",
-    year: "2026",
-    accentColor: "#06B6D4",
-    planetColor: "#06B6D4",
-    architecture: "Time-based rotating cryptographic token exchange verified against campus GPS polygon bounds.",
-    challenges: "Handling sporadic indoor GPS drift and device clock discrepancies.",
-    lessons: "Combined client-side Kalman filtering with server-verified NTP time offsets.",
-    featured: false
-  },
-  {
-    id: "parko",
-    name: "PARKO",
-    tagline: "Urban parking allocation and sensorless spot reservation app",
-    description: "Smart urban parking discovery using predictive crowd-density algorithms and real-time reservation dispatch.",
-    longDescription: "Reduces urban traffic congestion caused by circling vehicles through crowdsourced space availability models.",
-    category: "MOBILITY",
-    techStack: ["React", "TypeScript", "Tailwind CSS", "Supabase"],
-    metrics: ["Crowd-Density Prediction", "Interactive Map UI", "Instant Booking Flow"],
-    githubUrl: "https://github.com/hasishinfant",
-    badge: "MOBILITY APP",
-    role: "APP / PRODUCT",
-    year: "2026",
+    id: "oceanraksha",
+    name: "OCEANRAKSHA AI",
+    tagline: "MARINE SAFETY INTELLIGENCE",
+    description: "An early-warning system for coastal fishermen using environmental data and multilingual advisory generation.",
+    longDescription: "Engineered to protect vulnerable artisanal fishermen. Aggregates oceanographic meteorological data and generates localized, speech-enabled advisories in coastal regional languages.",
+    category: "MARINE & CLIMATE TECH",
+    techStack: ["Environmental APIs", "AI", "Multilingual NLP", "Python"],
+    metrics: ["Multilingual Speech Advisories", "Early Storm Warning", "Artisanal Fishing Support"],
+    githubUrl: "https://github.com/AdvayaBGSCET/team-momentum.git",
+    badge: "COASTAL DEFENSE",
+    role: "AI & NLP ENGINEER",
+    year: "2025",
     accentColor: "#8B5CF6",
     planetColor: "#8B5CF6",
-    architecture: "Real-time state updates using Supabase subscriptions and location-proximity indexing.",
-    challenges: "Predicting occupancy churn rates in high-turnover metropolitan zones.",
-    lessons: "Leveraged exponential moving averages over historical time-block arrival patterns.",
-    featured: false
+    architecture: "Environmental API telemetry fed into localized multilingual generative models with audio synthesis.",
+    challenges: "Translating complex ocean risk terminology into actionable regional dialects.",
+    lessons: "Trained zero-shot prompt templates focused on direct, imperative safety advice.",
+    featured: true
   }
 ];
 
 export const PROJECT_INDEX_DATA = [
-  { name: "OPUS", year: "2026", type: "AI / SYSTEM", role: "BUILDER", id: "opus" },
-  { name: "OPPORTUNX", year: "2026", type: "CAREER TECH", role: "FULL STACK", id: "opportunx" },
-  { name: "NEOSCHOLAR AI", year: "2026", type: "RESEARCH AI", role: "BUILDER", id: "neoscholar" },
-  { name: "TRAVELSPHERE", year: "2026", type: "TRAVEL INTELLIGENCE", role: "PRODUCT / ENGINEERING", id: "travelsphere" },
-  { name: "CIVICFLOW", year: "2026", type: "CIVIC TECH", role: "PRODUCT / ENGINEERING", id: "civicflow" },
-  { name: "ATTENDQ", year: "2026", type: "EDTECH", role: "FULL STACK", id: "attendq" },
-  { name: "PARKO", year: "2026", type: "MOBILITY", role: "APP / PRODUCT", id: "parko" },
+  { name: "OPPORTUNX", year: "2026", type: "CAREER TECH", stack: "AWS Lambda / DynamoDB / React", url: "https://github.com/hasishinfant/OpportuneX-ai.git" },
+  { name: "RAKSHATANTRA AI", year: "2026", type: "SAFETY & VISION", stack: "Azure / IoT / OpenCV / Python", url: "https://github.com/hasishinfant/Rakshatantra-AI.git" },
+  { name: "TRAVELSPHERE", year: "2026", type: "TRAVEL RISK AI", stack: "React / TypeScript / AI Models", url: "https://github.com/hasishinfant/tbo.git" },
+  { name: "VIDEOY", year: "2026", type: "VIDEO SFU", stack: "WebRTC / Mediasoup / Node.js", url: "https://github.com/hasishinfant/Videoy.git" },
+  { name: "OCEANRAKSHA AI", year: "2025", type: "MARINE AI", stack: "Environmental APIs / NLP / Python", url: "https://github.com/AdvayaBGSCET/team-momentum.git" }
 ];
 
-export const TECHNICAL_STACK = {
-  languages: ["C", "C++", "Python", "Java", "JavaScript", "TypeScript", "SQL"],
-  frontend: ["React", "Next.js", "React Native", "Three.js"],
-  backend: ["Node.js", "Express", "REST APIs", "Supabase", "Firebase"],
-  cloud: ["AWS", "Azure", "S3", "CloudFront", "Lambda", "DynamoDB"],
-  ai: ["Gemini", "Claude", "LangChain", "AI Agents"],
-  tools: ["Git", "GitHub", "Figma", "VS Code"],
+export const PROOF_METRICS = [
+  { value: "50+", label: "DSA PROBLEMS SOLVED", detail: "Active problem solver & algorithm practice" },
+  { value: "4x", label: "GRAND FINALIST", detail: "Proven hackathon competitor under sprint pressure" },
+  { value: "1x", label: "HACKATHON WINNER", detail: "Shipped winning prototypes end-to-end" },
+  { value: "BRONZE", label: "CODE VEDA HACKATHON", detail: "National workforce safety innovation award" },
+  { value: "TOP 52", label: "TBO VOYAGEHACK 3.0", detail: "Selected among thousands of national teams" }
+];
+
+export const LEADERSHIP_DATA = [
+  {
+    role: "CO-LEAD",
+    org: "SIG Web App & UI/UX — Alliance University",
+    description: "Mentoring students in modern React, UI/UX principles, design systems, wireframing, testing, debugging, version control, and production deployment.",
+    badge: "UNIVERSITY LEADERSHIP"
+  },
+  {
+    role: "FOUNDER",
+    org: "Tech^Ferrs Community",
+    description: "Founded an engineering community connecting student developers with seasoned software and AI engineers through talks, workshops, and collaborative hackathons.",
+    badge: "COMMUNITY FOUNDER"
+  }
+];
+
+export const FREELANCE_SERVICES: ServiceItem[] = [
+  {
+    id: "business-websites",
+    number: "01",
+    title: "BUSINESS WEBSITES",
+    description: "Modern, high-speed, fully responsive websites for businesses, creators, and small teams that want a standout digital presence.",
+    deliverables: ["Custom Layout", "Blistering Load Speed", "Mobile Optimization", "SEO Foundations"],
+    tag: "WEB PRESENCE"
+  },
+  {
+    id: "landing-pages",
+    number: "02",
+    title: "LANDING PAGES",
+    description: "High-impact landing pages focused on clear messaging, strong visual hierarchy, and converting visitors into customers.",
+    deliverables: ["Punchy Copy Hierarchy", "Visual Storytelling", "Fast Form Integrations", "Analytics Setup"],
+    tag: "CONVERSION"
+  },
+  {
+    id: "web-apps",
+    number: "03",
+    title: "WEB APPLICATIONS",
+    description: "Full-stack web applications, internal operational tools, user portals, and high-throughput dashboards built to scale.",
+    deliverables: ["Full-Stack Architecture", "Authentication & Databases", "API Integrations", "Admin Dashboards"],
+    tag: "FULL STACK"
+  },
+  {
+    id: "ai-features",
+    number: "04",
+    title: "AI-POWERED FEATURES",
+    description: "Integrating intelligent LLM capabilities, document synthesis, conversational assistants, and automated workflow triggers.",
+    deliverables: ["Gemini / Claude API Integration", "Document RAG", "Workflow Automations", "Intelligent Bots"],
+    tag: "AI CAPABILITIES"
+  },
+  {
+    id: "frontend-dev",
+    number: "05",
+    title: "FRONTEND DEVELOPMENT",
+    description: "Transforming Figma designs and rough concepts into pixel-perfect, accessible, production-quality code with tactile animations.",
+    deliverables: ["React / Next.js / TypeScript", "Tailwind CSS", "Interactive Micro-Animations", "Clean Component Architecture"],
+    tag: "CRAFT & UI"
+  }
+];
+
+export const FREELANCE_PROCESS: FreelanceStep[] = [
+  { step: "01", title: "IDEA", description: "We discuss your vision, core requirements, and target timeline to define the essential first version." },
+  { step: "02", title: "DESIGN", description: "I outline the visual hierarchy, component layout, and user flows with clean, bold aesthetics." },
+  { step: "03", title: "DEVELOPMENT", description: "I write clean, modular, production-ready code with responsive layouts and robust state handling." },
+  { step: "04", title: "DEPLOYMENT", description: "We ship to a live URL with custom domain configuration, SSL encryption, and analytics." }
+];
+
+export const TECHNICAL_SKILLS = {
+  languages: ["Java", "C++", "Python", "JavaScript", "TypeScript", "SQL"],
+  frontend: ["React.js", "Next.js", "React Native", "HTML5", "CSS3", "Tailwind CSS", "Leaflet.js"],
+  backend: ["Node.js", "Express.js", "REST APIs", "MongoDB", "Firebase", "Supabase", "WebRTC", "Mediasoup SFU"],
+  cloud: ["AWS Lambda", "API Gateway", "DynamoDB", "S3", "CloudFront", "Microsoft Azure"],
+  toolsAndAI: ["Git", "GitHub", "LangChain", "Claude API", "Groq", "Figma"],
+  fundamentals: ["Data Structures & Algorithms", "Object-Oriented Programming", "DBMS"]
 };
 
-export const PROOF_OF_WORK_TIMELINE: TimelineItem[] = [
-  {
-    year: "2026",
-    title: "OPUS",
-    type: "AI / 3D EXPERIMENT",
-    description: "Architected personal AI operating system experiment connecting voice intent to native macOS tool calling with an interactive 3D orbital interface.",
-    metrics: "Hero System • Three.js + Gemini"
-  },
-  {
-    year: "2026",
-    title: "NEOSCHOLAR AI",
-    type: "NEO4J MINI-HACK",
-    description: "Built an academic research intelligence and relationship mapping engine under intense 2-hour hackathon constraints using Neo4j graph theory.",
-    metrics: "2-Hour Sprint • Graph Visualization"
-  },
-  {
-    year: "2026",
-    title: "TRAVELSPHERE",
-    type: "TRAVEL INTELLIGENCE PROTOTYPE",
-    description: "Engineered multi-criteria confidence scoring algorithm integrating geo-risk, weather forecasts, transportation viability, and health parameters.",
-    metrics: "Decision Support • AI Scorer"
-  },
-  {
-    year: "2026",
-    title: "OPPORTUNX",
-    type: "OPPORTUNITY INTELLIGENCE PLATFORM",
-    description: "Shipped automated discovery engine indexing 12,000+ hackathons and grants with dimensional UI, serverless AWS Lambda, and Devpost showcase.",
-    metrics: "AWS CloudFront • Devpost Project"
-  },
-  {
-    year: "2026",
-    title: "MICROSOFT / DEVELOPER EVENTS",
-    type: "AI / CLOUD ECOSYSTEM EXPOSURE",
-    description: "Engaged in hands-on developer workshops, cloud architectural discussions, and advanced AI systems engineering sessions.",
-    metrics: "Technical Ecosystem • Cloud Architecture"
-  },
-  {
-    year: "2026",
-    title: "GDG BENGALURU",
-    type: "DEVELOPER COMMUNITY",
-    description: "Active participant in Google Developer Groups Bengaluru tech meetups, hackathons, and local builder community discussions.",
-    metrics: "Community Builder • Bengaluru Tech"
-  }
-];
-
-export const TIMELINE: TimelineMilestone[] = [
-  {
-    year: "2026",
-    title: "OPUS",
-    role: "Lead AI Architect",
-    organization: "Independent Lab",
-    description: "Architected personal AI operating system experiment with voice intent and 3D orbital UI.",
-    achievements: ["Voice routing in <400ms", "Native macOS Swift tool caller", "Three.js 60fps orbital scene"],
-    category: "Project",
-    islandTheme: "cyber"
-  },
-  {
-    year: "2026",
-    title: "NeoScholar AI",
-    role: "Builder",
-    organization: "Neo4j Hackathon",
-    description: "Academic knowledge graph engine built under 2-hour mini-hack constraints.",
-    achievements: ["2-hour hackathon delivery", "Graph Cypher queries", "Citation relationship mapping"],
-    category: "Hackathon",
-    islandTheme: "crystal"
-  },
-  {
-    year: "2026",
-    title: "OpportunX",
-    role: "Full Stack Engineer",
-    organization: "OpportunX",
-    description: "Automated opportunity matching platform indexing 12,000+ hackathons and grants.",
-    achievements: ["AWS Lambda serverless scaling", "Devpost showcase", "CloudFront CDN"],
-    category: "Project",
-    islandTheme: "gas"
-  }
-];
-
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: "1",
-    name: "Engineering Lead",
-    role: "Senior Staff Architect",
-    company: "AI Innovation Lab",
-    content: "Hasish has an uncommon ability to bridge high-craft spatial design with deep systems engineering. His work on autonomous agent architectures is exceptionally intentional.",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
-  }
-];
-
+// Backward compatibility helper exports for any remaining canvas components
 export interface SkillItem {
   id: string;
   name: string;
@@ -351,159 +322,111 @@ export interface SkillItem {
   iconName: string;
 }
 
+export interface TimelineMilestone {
+  year: string;
+  title: string;
+  category: string;
+  description: string;
+  achievements: string[];
+  role?: string;
+  organization?: string;
+  islandTheme?: string;
+}
+
 export const SKILLS: SkillItem[] = [
-  {
-    id: "ts",
-    name: "TypeScript",
-    category: "Languages",
-    experienceYears: "3+",
-    level: 95,
-    favoriteFeatures: ["Strict Type Safety", "Generic Constrained Inference"],
-    relatedProjects: ["OPUS", "OpportunX"],
-    color: "#3178c6",
-    iconName: "Code"
-  },
-  {
-    id: "react",
-    name: "React & Next.js",
-    category: "Frontend",
-    experienceYears: "3+",
-    level: 92,
-    favoriteFeatures: ["Server Components", "Suspense Streaming"],
-    relatedProjects: ["OpportunX", "TravelSphere"],
-    color: "#61dafb",
-    iconName: "Layers"
-  },
-  {
-    id: "three",
-    name: "Three.js & R3F",
-    category: "Graphics",
-    experienceYears: "2+",
-    level: 88,
-    favoriteFeatures: ["Custom GLSL Shaders", "Instanced Buffer Geometries"],
-    relatedProjects: ["OPUS", "NeoScholar AI"],
-    color: "#ffffff",
-    iconName: "Sparkles"
-  },
-  {
-    id: "python",
-    name: "Python",
-    category: "AI & Backend",
-    experienceYears: "3+",
-    level: 90,
-    favoriteFeatures: ["AsyncIO Workers", "PyTorch Tensors"],
-    relatedProjects: ["OPUS", "OpportunX"],
-    color: "#3572A5",
-    iconName: "Terminal"
-  }
+  { id: "ts", name: "TypeScript", category: "Languages", experienceYears: "3+", level: 95, favoriteFeatures: ["Strict Type Safety"], relatedProjects: ["OpportunX"], color: "#3178c6", iconName: "Code" }
 ];
 
-export const GITHUB_STATS = {
-  totalContributions: 1420,
-  currentStreak: 42,
-  longestStreak: 98,
-  repositoriesCount: 24,
-  totalPRs: 65,
-  totalRepos: 24,
-  totalStars: 180,
-  recentCommits: [
-    { message: "feat: deterministic DAG cycle validation", repo: "opus-ai-agent", date: "Today", time: "2h ago" },
-    { message: "perf: cap Three.js DPR for low-power mobile GPUs", repo: "my-portfolio", date: "Yesterday", time: "1d ago" }
-  ],
-  topLanguages: [
-    { name: "TypeScript", percentage: 58, color: "#3178c6" },
-    { name: "Python", percentage: 26, color: "#3572A5" },
-    { name: "C++", percentage: 16, color: "#f34b7d" }
-  ]
-};
-
 export const BUILDING_IN_PUBLIC_DATA = {
-  headline: "I DON'T JUST BUILD. I SHARE THE PROCESS.",
-  subheadline: "Raw iterations, architectural decisions, failed attempts, and technical takeaways shared openly with the community.",
-  metrics: [
-    { value: "100K+", label: "LinkedIn Impressions", context: "Technical walkthroughs & build reflections" },
-    { value: "28+", label: "In-Depth Posts", context: "Engineering breakdowns & architecture retros" },
-    { value: "Multiple", label: "Hackathons", context: "High-intensity prototype sprints" },
-    { value: "Bengaluru", label: "Builder Hub", context: "Active in local engineering community" },
-  ],
+  headline: "BUILDING IN PUBLIC",
+  subheadline: "Retrospectives, takeaways, and sharing the engineering process.",
   fragments: [
-    {
-      tag: "ITERATION 03",
-      title: "Why Voice Agents Fail at Context Switching",
-      note: "Learned that single-prompt LLMs fail when bridging OS actions with open-ended conversation. Replaced with dual-track Intent vs Tool DAG router.",
-      topic: "System Design"
-    },
-    {
-      tag: "HACKATHON SPRINT",
-      title: "Building NeoScholar in 120 Minutes",
-      note: "Constrained time forces radical prioritization: dropped complex graph embeddings, focused on pure Cypher relationship nodes.",
-      topic: "Neo4j Hack"
-    },
-    {
-      tag: "POST-MORTEM",
-      title: "When Serverless Freezes: Taming Cold Starts",
-      note: "Provisioned concurrency is expensive for student projects. Solved Lambda cold starts by bundling lightweight Python runtimes with minimal dependencies.",
-      topic: "AWS Architecture"
-    },
-    {
-      tag: "GRAPHICS LAB",
-      title: "Sub-16ms Shaders on Low-Power Mobile GPUs",
-      note: "Three.js models can easily throttle mobile browsers. Swapped heavy PBR textures for procedural mathematical shaders and capped DPR to 2.",
-      topic: "Three.js Optimization"
-    }
+    { title: "OpportunX Cloud Launch", tag: "CLOUD // AWS", topic: "CLOUD INFRASTRUCTURE", note: "Serverless AWS Lambda crawlers with DynamoDB.", text: "Deployed serverless roadmap generation on AWS.", metrics: "12,000+ Parsed" }
+  ],
+  metrics: [
+    { label: "Community Members", value: "200+" }
   ]
 };
 
-export const LAB_EXPERIMENTS: LabExperiment[] = [
+export const LAB_EXPERIMENTS = [
   {
-    id: "exp-01",
-    title: "Deterministic Agent Loop State Machine",
-    category: "AI AGENTS",
-    status: "PROTOTYPE",
-    description: "Preventing infinite token cycles in autonomous agents using mathematical cycle detection on task dependency graphs.",
-    tech: ["TypeScript", "DAG Graph", "Gemini API"],
-    codeSnippet: `// Cycle detection guard\nfunction validateTaskGraph(dag: TaskNode[]): boolean {\n  const visited = new Set<string>();\n  const recStack = new Set<string>();\n  return !dag.some(node => hasCycle(node, visited, recStack));\n}`,
-    annotation: "BUILD 026 // ZERO-DEADLOCK"
-  },
-  {
-    id: "exp-02",
-    title: "Spatial Orbital UI Anchor Math",
-    category: "3D UI",
-    status: "ACTIVE LAB",
-    description: "Calculating spherical coordinate projection for floating interface nodes orbiting an interactive center without jitter.",
-    tech: ["Three.js", "GLSL", "React Three Fiber"],
-    codeSnippet: `// Spherical orbital transform\nconst phi = Math.acos(-1 + (2 * i) / totalNodes);\nconst theta = Math.sqrt(totalNodes * Math.PI) * phi;\nx = radius * Math.cos(theta) * Math.sin(phi);\ny = radius * Math.sin(theta) * Math.sin(phi);\nz = radius * Math.cos(phi);`,
-    annotation: "MATH // SPHERICAL PROJECTION"
-  },
-  {
-    id: "exp-03",
-    title: "Resilient Headless Scraper Rotation",
-    category: "AUTOMATION",
-    status: "SHIPPED",
-    description: "Queue-backed distributed scraping workers with automated exponential backoff and ephemeral IP rotation.",
-    tech: ["Python", "AsyncIO", "Proxy Mesh"],
-    codeSnippet: `async def fetch_with_backoff(session, url, attempt=1):\n  try:\n    return await session.get(url, timeout=4.5)\n  except (TimeoutError, ProxyError):\n    if attempt > 3: raise\n    await asyncio.sleep(2 ** attempt)\n    return await fetch_with_backoff(session, url, attempt + 1)`,
-    annotation: "WORKER // RESILIENT RETRY"
-  },
-  {
-    id: "exp-04",
-    title: "Multi-Criteria Decision Scoring Algorithm",
-    category: "DECISION SYSTEMS",
-    status: "VALIDATING",
-    description: "Normalized percentile vector weighting for evaluating risk factors against traveler comfort constraints.",
-    tech: ["TypeScript", "Vector Math"],
-    codeSnippet: `function computeConfidenceScore(metrics: FactorVector, weights: WeightVector): number {\n  const normalized = normalizeFactors(metrics);\n  const dotProduct = normalized.reduce((acc, val, i) => acc + val * weights[i], 0);\n  return Math.min(100, Math.max(0, Math.round(dotProduct * 100)));\n}`,
-    annotation: "ALGO // NORMALIZED SCORING"
+    id: "webrtc-sfu",
+    title: "WebRTC SFU Multiplexing",
+    date: "2026",
+    description: "Selective Forwarding Unit real-time media router with Mediasoup C++ workers.",
+    status: "ACTIVE EXPERIMENT",
+    tags: ["WebRTC", "SFU", "C++", "Node.js"],
+    category: "SYSTEMS",
+    annotation: "Sub-100ms latency testing",
+    codeSnippet: "const router = await mediasoupWorker.createRouter();"
   }
 ];
 
 export const COMMUNITY_AFFILIATIONS = [
-  { name: "Google Developer Groups Bengaluru", category: "Developer Community", location: "Bengaluru" },
-  { name: "Microsoft Developer Ecosystem", category: "Cloud & AI", location: "Global / India" },
-  { name: "Neo4j Graph Community", category: "Graph Intelligence", location: "Mini-Hack" },
-  { name: "Major League Hacking (MLH)", category: "Hackathon Circuit", location: "Global" },
-  { name: "Smart India Hackathon (SIH)", category: "National Innovation", location: "India" },
-  { name: "GirlScript Summer of Code", category: "Open Source Contributor", location: "Community" },
-  { name: "HackerRank", category: "Problem Solving", location: "Verified Skills" },
-  { name: "Alliance University", category: "B.Tech Computer Science (3rd Year)", location: "Bengaluru" },
+  {
+    name: "SIG Web App & UI/UX",
+    category: "UNIVERSITY LEADERSHIP",
+    location: "Bengaluru, IN",
+    role: "Co-Lead",
+    org: "Alliance University",
+    type: "University Leadership",
+    impact: "Mentoring student developers in React & web architecture"
+  },
+  {
+    name: "Tech^Ferrs",
+    category: "DEV COMMUNITY",
+    location: "Bengaluru, IN",
+    role: "Founder",
+    org: "Tech^Ferrs Community",
+    type: "Community Builder",
+    impact: "Bridging students with industry engineers"
+  }
 ];
+
+export const TESTIMONIALS = [
+  {
+    id: "hackathon-1",
+    name: "Hackathon Judge",
+    role: "Tech Lead",
+    company: "Code Veda",
+    avatar: "",
+    content: "Hasish brings incredible velocity, full-stack competence, and extreme ownership to every project.",
+    quote: "Hasish brings incredible velocity, full-stack competence, and extreme ownership to every project.",
+    author: "Hackathon Judge & Tech Lead",
+    title: "Code Veda Hackathon"
+  }
+];
+
+export const TIMELINE: TimelineMilestone[] = [
+  {
+    year: "2026",
+    title: "Hackathon Wins & Production Scaled",
+    category: "MILESTONE",
+    description: "Won Bronze Medal at Code Veda, Top 52 at TBO VoyageHack 3.0, and launched OpportunX on AWS.",
+    achievements: ["Code Veda Bronze Medal", "TBO VoyageHack 3.0 Top 52", "OpportunX AWS CloudFront Launch"],
+    role: "Full-Stack Engineer",
+    organization: "Independent Builder",
+    islandTheme: "cyber"
+  }
+];
+
+export const GITHUB_STATS = {
+  totalRepos: 30,
+  totalStars: 45,
+  totalContributions: 850,
+  currentStreak: 21,
+  longestStreak: 45,
+  repositoriesCount: 30,
+  totalPRs: 28,
+  recentCommits: [
+    { repo: "OpportuneX-ai", time: "2 days ago", message: "feat: add serverless AWS Lambda roadmap generation" },
+    { repo: "Videoy", time: "5 days ago", message: "perf: optimize Mediasoup SFU consumer bitrate switching" }
+  ],
+  topLanguages: [
+    { name: "TypeScript", percentage: 55, color: "#3178c6" },
+    { name: "Python", percentage: 25, color: "#3572A5" },
+    { name: "JavaScript", percentage: 15, color: "#f1e05a" },
+    { name: "C++", percentage: 5, color: "#f34b7d" }
+  ]
+};
+

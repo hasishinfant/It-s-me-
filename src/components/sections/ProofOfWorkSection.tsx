@@ -1,69 +1,104 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
-import { PROOF_OF_WORK_TIMELINE } from '../../data/portfolioData';
+import { Award, Trophy, Code2, Zap, Flame } from 'lucide-react';
+import { PROOF_METRICS } from '../../data/portfolioData';
+
+const METRIC_ICONS: Record<string, React.ReactNode> = {
+  '50+': <Code2 className="w-5 h-5 text-black" />,
+  '4x': <Flame className="w-5 h-5 text-black" />,
+  '1x': <Trophy className="w-5 h-5 text-black" />,
+  'BRONZE': <Award className="w-5 h-5 text-black" />,
+  'TOP 52': <Zap className="w-5 h-5 text-black" />
+};
 
 export const ProofOfWorkSection: React.FC = () => {
   return (
-    <section id="proof" className="relative py-28 sm:py-36 px-4 sm:px-8 bg-[#080808] text-white border-y border-white/10">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header (Exhibition Wall) */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 sm:mb-24">
+    <section id="proof" className="w-full px-4 sm:px-8 py-20 bg-[#F4F4F0] border-b-2 border-black">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-[11px] font-mono uppercase tracking-widest text-neutral-300 mb-4 border border-white/10">
-              <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-              <span>SECTION 05 // EXHIBITION WALL</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FF0000] text-white border-2 border-black shadow-[3px_3px_0px_#000] font-mono text-xs font-bold uppercase mb-3">
+              <Trophy className="w-3.5 h-3.5" />
+              <span>COMPETITIVE BENCHMARKS</span>
             </div>
-            <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold font-grotesk tracking-tight text-white uppercase leading-[0.92]">
-              PROOF OF WORK
+            <h2 className="text-4xl sm:text-6xl font-black font-grotesk tracking-tight text-black uppercase">
+              I BUILD TO LEARN.
             </h2>
+            <p className="mt-1 font-mono text-xs sm:text-sm font-bold text-neutral-700">
+              HERE IS THE PROOF OF WORK & SPRINT EXECUTION.
+            </p>
           </div>
-          <p className="max-w-sm text-xs sm:text-sm text-neutral-400 font-mono">
-            A chronological timeline of shipped prototypes, competitive hackathons, and technical community benchmarks.
-          </p>
+          <div className="max-w-xs font-mono text-xs font-bold text-neutral-800">
+            Hackathons test speed, architecture decisions, and high-pressure delivery. I consistently take ideas to working prototypes.
+          </div>
         </div>
 
-        {/* ── VERTICAL TIMELINE EXHIBITION WALL ── */}
-        <div className="relative border-l border-white/15 pl-6 sm:pl-10 ml-2 sm:ml-4 space-y-12 sm:space-y-16">
-          {PROOF_OF_WORK_TIMELINE.map((item, idx) => (
+        {/* 5 Comic Metric Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PROOF_METRICS.map((metric, idx) => (
             <motion.div
-              key={`${item.title}-${idx}`}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="relative group"
+              transition={{ duration: 0.3, delay: idx * 0.08 }}
+              className={`p-6 border-2 sm:border-[3px] border-black transition-all hover:translate-x-[-2px] hover:translate-y-[-2px] ${
+                idx === 0
+                  ? 'bg-[#FAFF00] shadow-[6px_6px_0px_#000]'
+                  : idx === 3
+                  ? 'bg-white shadow-[6px_6px_0px_#000] border-t-8 border-t-[#FF0000]'
+                  : idx === 4
+                  ? 'bg-white shadow-[6px_6px_0px_#000] border-t-8 border-t-[#0044FF]'
+                  : 'bg-white shadow-[6px_6px_0px_#000]'
+              }`}
             >
-              {/* Timeline Indicator Dot */}
-              <div className="absolute -left-[31px] sm:-left-[47px] top-1.5 w-3 h-3 rounded-full bg-neutral-900 border-2 border-purple-500 group-hover:scale-125 transition-transform" />
-
-              <div className="p-6 sm:p-8 rounded-3xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 transition-all duration-300">
-                <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10 text-xs font-mono">
-                  <div className="flex items-center gap-3">
-                    <span className="text-purple-400 font-bold">{item.year}</span>
-                    <span className="text-neutral-500">•</span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-white/10 text-neutral-200">
-                      {item.type}
-                    </span>
-                  </div>
-                  {item.metrics && (
-                    <span className="text-neutral-400 font-medium text-[11px]">
-                      {item.metrics}
-                    </span>
-                  )}
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-10 h-10 bg-white border-2 border-black shadow-[2px_2px_0px_#000] flex items-center justify-center">
+                  {METRIC_ICONS[metric.value] || <Zap className="w-5 h-5 text-black" />}
                 </div>
-
-                <div className="mt-5">
-                  <h3 className="text-2xl sm:text-3xl font-bold font-grotesk tracking-tight text-white group-hover:text-purple-300 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-xs sm:text-sm text-neutral-400 leading-relaxed font-light max-w-3xl">
-                    {item.description}
-                  </p>
-                </div>
+                <span className="font-mono text-xs font-bold text-neutral-500">
+                  BENCHMARK 0{idx + 1}
+                </span>
               </div>
+
+              <div className="text-4xl sm:text-5xl font-black font-grotesk text-black tracking-tight mb-2">
+                {metric.value}
+              </div>
+
+              <div className="font-mono text-xs font-black uppercase text-black mb-1">
+                {metric.label}
+              </div>
+
+              <p className="font-body text-xs sm:text-sm text-neutral-700 font-medium">
+                {metric.detail}
+              </p>
             </motion.div>
           ))}
+
+          {/* Bonus Summary Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: 0.4 }}
+            className="p-6 bg-black text-white border-2 sm:border-[3px] border-black shadow-[6px_6px_0px_#000] flex flex-col justify-between"
+          >
+            <div>
+              <span className="inline-block px-2 py-0.5 bg-[#FAFF00] text-black font-mono text-[10px] font-bold uppercase mb-3">
+                ENGINEERING ETHOS
+              </span>
+              <h3 className="text-2xl font-black font-grotesk text-white mb-2">
+                VELOCITY & OWNERSHIP
+              </h3>
+              <p className="text-xs sm:text-sm font-mono text-neutral-300">
+                "Code works or it doesn't. Theory is good, but shipping deployed systems to production is where real engineering begins."
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-neutral-700 font-mono text-xs text-[#FAFF00] font-bold">
+              HASISH INFANT · BENGALURU
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
