@@ -8,13 +8,13 @@
   --font-brutalist: 'Space Grotesk', sans-serif;
   --font-body: 'Plus Jakarta Sans', 'Barlow', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --color-warm-bg: #f6f5f1;
-  --color-dark-bg: #0c0c0e;
+  --color-warm-bg: #F4F3EF;
+  --color-dark-bg: #080808;
 }
 
 html, body {
-  background: #ebeae5;
-  color: #121212;
+  background: #F4F3EF;
+  color: #0A0A0A;
   font-family: 'Plus Jakarta Sans', 'Barlow', sans-serif;
   overflow-x: hidden;
   margin: 0;

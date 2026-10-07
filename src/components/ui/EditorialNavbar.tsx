@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, Sparkles } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { PERSONAL_DATA } from '../../data/portfolioData';
 
 interface EditorialNavbarProps {
   onContactClick?: () => void;
@@ -24,80 +25,68 @@ export const EditorialNavbar: React.FC<EditorialNavbarProps> = ({ onContactClick
   };
 
   return (
-    <header className="sticky top-4 sm:top-6 z-50 w-full px-4 sm:px-8 max-w-[1360px] mx-auto pointer-events-none">
+    <header className="sticky top-3 sm:top-5 z-50 w-full px-4 sm:px-8 max-w-[1440px] mx-auto pointer-events-none">
       <div
         className={`pointer-events-auto flex items-center justify-between py-2.5 px-4 sm:px-6 rounded-full transition-all duration-300 border ${
           scrolled
-            ? 'bg-[#f6f5f1]/90 backdrop-blur-md border-black/10 shadow-sm text-neutral-900'
+            ? 'bg-[#F4F3EF]/90 backdrop-blur-md border-black/10 shadow-sm text-neutral-900'
             : 'bg-transparent border-black/5 text-neutral-900'
         }`}
       >
-        {/* Name / Studio Monogram */}
+        {/* Name Monogram */}
         <button
           onClick={() => scrollTo('hero')}
-          className="group flex items-center gap-2.5 text-left text-xs sm:text-sm font-semibold tracking-wider uppercase"
+          className="group flex items-center gap-2.5 text-left text-xs sm:text-sm font-semibold tracking-wider uppercase cursor-pointer"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="font-grotesk tracking-widest text-neutral-950 group-hover:opacity-70 transition-opacity">
-            HASISH INFANT // STUDIO
-          </span>
-          <span className="hidden lg:inline-block text-[10px] text-neutral-400 font-mono tracking-normal">
-            [EST. 2024]
+          <span className="font-grotesk font-bold tracking-widest text-neutral-950 group-hover:opacity-70 transition-opacity">
+            {PERSONAL_DATA.name.toUpperCase()}
           </span>
         </button>
 
-        {/* Center Links */}
+        {/* Center Links (WORK, ABOUT, EXPERIMENTS, CONTACT) */}
         <nav className="hidden md:flex items-center gap-6 text-xs font-mono uppercase tracking-wider text-neutral-700">
           <button
-            onClick={() => scrollTo('projects-reveal')}
-            className="hover:text-black transition-colors relative py-1"
+            onClick={() => scrollTo('work')}
+            className="hover:text-black transition-colors relative py-1 cursor-pointer"
           >
             WORK
           </button>
           <button
-            onClick={() => scrollTo('collective')}
-            className="hover:text-black transition-colors relative py-1 flex items-center gap-1"
+            onClick={() => scrollTo('about')}
+            className="hover:text-black transition-colors relative py-1 cursor-pointer"
           >
-            <span className="text-purple-600 font-bold">●</span>
-            <span>COLLECTIVE</span>
+            ABOUT
           </button>
           <button
-            onClick={() => scrollTo('studies')}
-            className="hover:text-black transition-colors relative py-1"
+            onClick={() => scrollTo('experiments')}
+            className="hover:text-black transition-colors relative py-1 cursor-pointer"
           >
-            STUDIES
+            EXPERIMENTS
           </button>
           <button
-            onClick={() => scrollTo('my-craft')}
-            className="hover:text-black transition-colors relative py-1"
+            onClick={() => scrollTo('contact')}
+            className="hover:text-black transition-colors relative py-1 cursor-pointer"
           >
-            CRAFT
-          </button>
-          <button
-            onClick={() => scrollTo('things-built')}
-            className="hover:text-black transition-colors relative py-1"
-          >
-            ARCHIVE
-          </button>
-          <button
-            onClick={() => scrollTo('bragging-rights')}
-            className="hover:text-black transition-colors relative py-1"
-          >
-            PROOF
+            CONTACT
           </button>
         </nav>
 
-        {/* Agency Commission Pill CTA */}
+        {/* Right Status Badge & Dark Rounded CTA */}
         <div className="flex items-center gap-3">
+          <div className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/70 border border-black/5 text-[10px] font-mono text-neutral-700">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span>AVAILABLE FOR INTERNSHIPS</span>
+          </div>
+
           <button
             onClick={() => {
               if (onContactClick) onContactClick();
               else scrollTo('contact');
             }}
-            className="group relative flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-950 text-white text-xs font-mono uppercase tracking-wider hover:bg-neutral-800 transition-all shadow-sm hover:shadow active:scale-95 border border-white/10"
+            className="group relative flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-neutral-950 text-white text-xs font-grotesk font-semibold uppercase tracking-wider hover:bg-neutral-800 transition-all shadow-sm active:scale-95 cursor-pointer"
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-300 transition-transform group-hover:rotate-12" />
-            <span>COMMISSION</span>
+            <span>LET'S TALK</span>
             <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
           </button>
         </div>
