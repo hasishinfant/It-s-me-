@@ -53,7 +53,6 @@ export const PERSONAL_DATA = {
     school: "Alliance School of Advanced Computing",
     degree: "B.Tech Computer Science and Engineering",
     duration: "2024 — 2028",
-    cgpa: "8.02 / 10",
     location: "Bengaluru, India"
   },
   bioStatement: "WHO IS HASISH?",

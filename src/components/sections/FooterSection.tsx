@@ -40,16 +40,10 @@ export const FooterSection: React.FC<FooterSectionProps> = ({ onScrollToTop }) =
         {/* Center Quick Navigation */}
         <nav className="flex flex-wrap items-center gap-4 font-mono text-xs font-bold uppercase tracking-wider text-neutral-300">
           <button
-            onClick={() => scrollTo('overview')}
-            className="hover:text-[#FAFF00] transition-colors cursor-pointer"
-          >
-            OVERVIEW
-          </button>
-          <button
             onClick={() => scrollTo('work')}
             className="hover:text-[#FAFF00] transition-colors cursor-pointer"
           >
-            PROJECTS
+            WORK
           </button>
           <button
             onClick={() => scrollTo('services')}

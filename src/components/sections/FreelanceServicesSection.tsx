@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, ArrowUpRight, Send } from 'lucide-react';
+import { ArrowUpRight, Send } from 'lucide-react';
 import { FREELANCE_SERVICES, FREELANCE_PROCESS } from '../../data/portfolioData';
 
 interface FreelanceServicesSectionProps {
@@ -23,15 +23,11 @@ export const FreelanceServicesSection: React.FC<FreelanceServicesSectionProps> =
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b-2 border-black">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FAFF00] text-black border-2 border-black shadow-[3px_3px_0px_#000] font-mono text-xs font-bold uppercase mb-3">
-              <Briefcase className="w-3.5 h-3.5" />
-              <span>SERVICES & CLIENT BUILDS</span>
-            </div>
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black font-grotesk tracking-tight text-black uppercase">
-              I BUILD FOR PEOPLE TOO.
+              SERVICES
             </h2>
             <p className="mt-2 text-base sm:text-lg font-body text-neutral-800 font-medium">
-              Available for select freelance projects, MVP builds, product landing pages, and AI integrations.
+              High-performance web applications, fast landing pages, and AI-powered product integrations.
             </p>
           </div>
 
@@ -76,9 +72,6 @@ export const FreelanceServicesSection: React.FC<FreelanceServicesSectionProps> =
                 </p>
 
                 <div className="space-y-1.5 pt-4 border-t border-neutral-200">
-                  <span className="block font-mono text-[11px] font-bold uppercase text-neutral-500 mb-1">
-                    DELIVERABLES:
-                  </span>
                   {service.deliverables.map((del, dIdx) => (
                     <div key={dIdx} className="flex items-center gap-2 text-xs font-mono font-bold text-neutral-800">
                       <span className="w-1.5 h-1.5 bg-[#FF0000]" />
@@ -88,8 +81,7 @@ export const FreelanceServicesSection: React.FC<FreelanceServicesSectionProps> =
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t-2 border-black flex items-center justify-between font-mono text-xs font-bold">
-                <span className="text-neutral-500">EST. SPRINT: 1-2 WEEKS</span>
+              <div className="mt-6 pt-4 border-t-2 border-black flex items-center justify-end font-mono text-xs font-bold">
                 <button
                   onClick={scrollToContact}
                   className="text-black hover:underline inline-flex items-center gap-1 cursor-pointer"
@@ -105,9 +97,6 @@ export const FreelanceServicesSection: React.FC<FreelanceServicesSectionProps> =
         <div className="bg-white border-2 sm:border-[3px] border-black shadow-[6px_6px_0px_#000] p-6 sm:p-10">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b-2 border-black">
             <div>
-              <span className="inline-block px-2.5 py-0.5 bg-black text-white font-mono text-xs font-bold uppercase mb-1">
-                HOW WE WORK
-              </span>
               <h3 className="text-2xl sm:text-4xl font-black font-grotesk text-black uppercase">
                 THE 4-STEP SHIP PROCESS
               </h3>
@@ -126,7 +115,7 @@ export const FreelanceServicesSection: React.FC<FreelanceServicesSectionProps> =
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-2xl font-black font-grotesk text-black">
-                      STEP {step.step}
+                      {step.step}
                     </span>
                     <span className="w-2.5 h-2.5 bg-[#FAFF00] border border-black" />
                   </div>
@@ -142,14 +131,11 @@ export const FreelanceServicesSection: React.FC<FreelanceServicesSectionProps> =
           </div>
         </div>
 
-        {/* Freelance CTA Banner */}
+        {/* CTA Banner */}
         <div className="bg-[#FAFF00] border-2 sm:border-[3px] border-black shadow-[8px_8px_0px_#000] p-6 sm:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2">
-            <span className="px-2.5 py-1 bg-black text-[#FAFF00] font-mono text-xs font-black uppercase">
-              READY TO SHIP?
-            </span>
             <h3 className="text-2xl sm:text-4xl font-black font-grotesk text-black uppercase">
-              HAVE SOMETHING YOU WANT TO BUILD?
+              HAVE A PROJECT YOU WANT TO BUILD?
             </h3>
             <p className="text-sm font-body text-neutral-900 font-semibold max-w-xl">
               Whether you need an MVP built in two weeks, a bold landing page designed to convert, or an AI feature integrated into your product, let's talk.
@@ -160,7 +146,7 @@ export const FreelanceServicesSection: React.FC<FreelanceServicesSectionProps> =
             onClick={scrollToContact}
             className="comic-btn-black px-6 py-3.5 text-xs sm:text-sm font-mono font-bold uppercase tracking-wider flex items-center gap-2 cursor-pointer shrink-0"
           >
-            <span>GET IN TOUCH FOR FREELANCE</span>
+            <span>GET IN TOUCH</span>
             <Send className="w-4 h-4 text-[#FAFF00]" />
           </button>
         </div>

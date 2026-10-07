@@ -11,17 +11,12 @@ export const SelectedWorkSection: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b-2 border-black">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FAFF00] text-black border-2 border-black shadow-[3px_3px_0px_#000] font-mono text-xs font-bold uppercase mb-3">
-              <span>FEATURED PORTFOLIO</span>
-            </div>
             <h2 className="text-4xl sm:text-6xl md:text-7xl font-black font-grotesk tracking-tight text-black uppercase">
               THINGS I'VE BUILT
             </h2>
-          </div>
-          <div className="max-w-md font-mono text-xs font-bold text-neutral-800">
-            <span className="block px-3 py-2 bg-white border-2 border-black shadow-[3px_3px_0px_#000]">
-              PROVEN PRODUCTION SYSTEMS · CLOUD ARCHITECTURES · HACKATHON WINNERS
-            </span>
+            <p className="mt-2 text-base sm:text-lg font-body text-neutral-800 font-medium">
+              Production web applications, hackathon-winning architectures, and AI systems.
+            </p>
           </div>
         </div>
 
@@ -52,10 +47,6 @@ export const SelectedWorkSection: React.FC = () => {
                     {project.category} · {project.year}
                   </span>
                 </div>
-
-                <span className="font-mono text-xs font-bold text-neutral-500 uppercase">
-                  ROLE: {project.role}
-                </span>
               </div>
 
               {/* Title & Tagline */}
@@ -75,11 +66,11 @@ export const SelectedWorkSection: React.FC = () => {
                     {project.longDescription || project.description}
                   </p>
 
-                  {/* Architecture & Engineering Highlights Box */}
+                  {/* Architecture Highlight Box */}
                   <div className="p-4 bg-[#F4F4F0] border-2 border-black shadow-[3px_3px_0px_#000]">
                     <div className="font-mono text-xs font-bold text-neutral-800 uppercase flex items-center gap-1.5 mb-1.5">
                       <Terminal className="w-3.5 h-3.5" />
-                      <span>ENGINEERING ARCHITECTURE:</span>
+                      <span>ARCHITECTURE:</span>
                     </div>
                     <p className="text-xs sm:text-sm font-mono text-neutral-800">
                       {project.architecture}
@@ -87,41 +78,30 @@ export const SelectedWorkSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Right Column: Metrics & Stack */}
+                {/* Right Column: Highlights & Stack */}
                 <div className="lg:col-span-5 space-y-5">
-                  {/* Proof Metrics */}
-                  <div>
-                    <span className="block font-mono text-xs font-bold uppercase text-neutral-600 mb-2">
-                      KEY PROOF POINTS:
-                    </span>
-                    <div className="space-y-2">
-                      {project.metrics.map((metric, mIdx) => (
-                        <div
-                          key={mIdx}
-                          className="flex items-center gap-2 px-3 py-1.5 bg-white border border-black shadow-[2px_2px_0px_#000] text-xs font-mono font-bold text-black"
-                        >
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                          <span>{metric}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="space-y-2">
+                    {project.metrics.map((metric, mIdx) => (
+                      <div
+                        key={mIdx}
+                        className="flex items-center gap-2 px-3 py-1.5 bg-white border border-black shadow-[2px_2px_0px_#000] text-xs font-mono font-bold text-black"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span>{metric}</span>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Tech Stack Pills */}
-                  <div>
-                    <span className="block font-mono text-xs font-bold uppercase text-neutral-600 mb-2">
-                      TECH ARSENAL:
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.techStack.map((tech, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="px-2.5 py-1 bg-white border border-black text-xs font-mono font-bold text-black shadow-[1px_1px_0px_#000]"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {project.techStack.map((tech, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="px-2.5 py-1 bg-white border border-black text-xs font-mono font-bold text-black shadow-[1px_1px_0px_#000]"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>

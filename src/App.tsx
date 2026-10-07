@@ -5,12 +5,8 @@ import { EditorialNavbar } from './components/ui/EditorialNavbar';
 import { ScrollAnnotations } from './components/ui/ScrollAnnotations';
 
 import { EditorialHero } from './components/sections/EditorialHero';
-import { RecruiterSnapshotSection } from './components/sections/RecruiterSnapshotSection';
-import { WhatIBuildSection } from './components/sections/WhatIBuildSection';
 import { SelectedWorkSection } from './components/sections/SelectedWorkSection';
 import { ProjectIndexSection } from './components/sections/ProjectIndexSection';
-import { ProofOfWorkSection } from './components/sections/ProofOfWorkSection';
-import { LeadershipEducationSection } from './components/sections/LeadershipEducationSection';
 import { FreelanceServicesSection } from './components/sections/FreelanceServicesSection';
 import { StackSection } from './components/sections/StackSection';
 import { AboutSection } from './components/sections/AboutSection';
@@ -52,7 +48,7 @@ export const App: React.FC = () => {
       {/* Precision Playful Desktop Cursor */}
       <PlayfulCursor />
 
-      {/* Top Scroll Indicator & Status Annotation */}
+      {/* Top Scroll Indicator (Electric Yellow discreet bar) */}
       <ScrollAnnotations />
 
       {/* ── COMIC-BRUTALIST VIEWPORT CONTAINER (1440px Max Width) ── */}
@@ -62,43 +58,31 @@ export const App: React.FC = () => {
 
         {/* ── COMIC-BRUTALIST PERSONAL BRAND PORTFOLIO ── */}
         <main className="relative w-full overflow-hidden">
-          {/* 01: HERO — Headline, 3 CTA Buttons, Signature 3D Kinetic Object, Credentials */}
+          {/* 01: HERO — Headline, 3 CTA Buttons, Signature 3D Kinetic Object */}
           <EditorialHero
             onExploreClick={() => handleScrollToSection('work')}
             onTalkClick={() => handleScrollToSection('contact')}
           />
 
-          {/* 02: AT A GLANCE — Technical Overview, Bengaluru, Quick Resume/Github Links */}
-          <RecruiterSnapshotSection />
-
-          {/* 03: WHAT I'M BUILDING RIGHT NOW — 5 Core Engineering Domains */}
-          <WhatIBuildSection />
-
-          {/* 04: SELECTED WORK — OpportunX, Rakshatantra AI, TravelSphere, Videoy, OceanRaksha */}
+          {/* 02: SELECTED WORK — OpportunX, Rakshatantra AI, TravelSphere, Videoy, OceanRaksha */}
           <SelectedWorkSection />
 
-          {/* 05: PROJECT ARCHIVE — Table of Builds with Direct Repo Links */}
+          {/* 03: PROJECT ARCHIVE — Table of Builds with Direct Repo Links */}
           <ProjectIndexSection />
 
-          {/* 06: PROOF OF WORK — 50+ DSA, 4x Finalist, 1x Winner, Bronze Medal, Top 52 VoyageHack */}
-          <ProofOfWorkSection />
-
-          {/* 07: LEADERSHIP & EDUCATION — SIG Web App Co-Lead, Tech^Ferrs Community, Alliance University */}
-          <LeadershipEducationSection />
-
-          {/* 08: FREELANCE SERVICES — 5 Client Services, 4-Step Ship Process, Ready to Ship CTA */}
+          {/* 04: FREELANCE SERVICES — 5 Client Services, 4-Step Ship Process, Ready to Ship CTA */}
           <FreelanceServicesSection onStartProjectClick={() => handleScrollToSection('contact')} />
 
-          {/* 09: TECHNICAL ARSENAL — Categorized Skills (Languages, Frontend, Backend, Cloud, AI, CS) */}
+          {/* 05: TECHNICAL ARSENAL — Categorized Skills (Languages, Frontend, Backend, Cloud, AI, CS) */}
           <StackSection />
 
-          {/* 10: ABOUT HASISH — Builder Identity, Manifesto, LinkedIn Journey */}
+          {/* 06: ABOUT HASISH — Builder Identity, Benchmarks & Proof of Work, Leadership & Education */}
           <AboutSection />
 
-          {/* 11: LET'S CREATE SOMETHING BOLD — Electric Yellow (#FAFF00) Contact Hub with 3 Intent Paths */}
+          {/* 07: LET'S CREATE SOMETHING BOLD — Contact Hub & Direct Form */}
           <LetsBuildSection />
 
-          {/* 12: FOOTER — Comic-Brutalist Footer with Socials & Top Return */}
+          {/* 08: FOOTER — Comic-Brutalist Footer with Socials & Top Return */}
           <FooterSection onScrollToTop={() => handleScrollToSection('hero')} />
         </main>
       </div>

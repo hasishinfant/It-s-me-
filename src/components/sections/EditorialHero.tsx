@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HeroIdentity3D } from '../canvas/HeroIdentity3D';
-import { ArrowDown, ArrowUpRight, Cpu, Layers, Terminal, Sparkles, FileText, CheckCircle2 } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, FileText } from 'lucide-react';
 import { PERSONAL_DATA } from '../../data/portfolioData';
 
 interface EditorialHeroProps {
@@ -18,49 +18,38 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between items-center px-4 sm:px-8 pt-4 pb-10 overflow-hidden bg-[#F4F4F0]"
+      className="relative min-h-[90vh] flex flex-col justify-between items-center px-4 sm:px-8 pt-4 pb-12 overflow-hidden bg-[#F4F4F0]"
     >
-      {/* ── TOP COMIC STATUS STRIP ── */}
-      <div className="w-full max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 py-2.5 px-4 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-xs font-mono font-bold">
+      {/* ── TOP CLEAN BAR ── */}
+      <div className="w-full max-w-6xl mx-auto flex items-center justify-between py-3 px-4 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-xs font-mono font-bold">
         <div className="flex items-center gap-2.5">
           <span className="w-2.5 h-2.5 bg-emerald-500 animate-ping" />
           <span className="uppercase text-black">
             {PERSONAL_DATA.name.toUpperCase()}
           </span>
           <span className="hidden sm:inline text-neutral-500 font-normal">
-            — {PERSONAL_DATA.location.toUpperCase()}
+            — BENGALURU, INDIA
           </span>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-[#FAFF00] border border-black text-[11px] font-mono font-bold text-black">
-            <span>AVAILABLE FOR WORK & PROJECTS</span>
-          </div>
-          <span className="hidden md:inline-flex items-center gap-1 text-[11px] text-neutral-700">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-            <span>CS UNDERGRAD · BUILDER</span>
-          </span>
-        </div>
+        <button
+          onClick={() => {
+            if (onTalkClick) onTalkClick();
+            else scrollTo('contact');
+          }}
+          className="px-3 py-1 bg-[#FAFF00] text-black border border-black hover:bg-black hover:text-white transition-colors cursor-pointer text-xs font-mono font-bold"
+        >
+          LET'S TALK →
+        </button>
       </div>
 
       {/* ── MAIN HERO STAGE ── */}
-      <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center mt-6 sm:mt-10 z-10">
-        {/* Top Comic Tag */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
+      <div className="w-full max-w-5xl mx-auto flex flex-col items-center text-center mt-8 sm:mt-12 z-10">
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-xs font-mono font-bold uppercase tracking-wider text-black mb-5"
-        >
-          <span className="w-2 h-2 bg-[#FF0000]" />
-          <span>FULL-STACK DEVELOPER · AI BUILDER · FREELANCER</span>
-        </motion.div>
-
-        {/* Comic Headline */}
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
           className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-grotesk tracking-tight text-black leading-[1.05] max-w-5xl"
         >
           I BUILD DIGITAL PRODUCTS AND{' '}
@@ -74,128 +63,66 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
           className="mt-6 text-base sm:text-lg md:text-xl font-body text-neutral-800 max-w-2xl font-medium leading-relaxed"
         >
-          Computer Science undergraduate from Bengaluru building scalable full-stack applications, intelligent AI systems, and shipping products for clients.
+          Computer Science student and full-stack developer from Bengaluru building web applications, AI systems, and shipping products.
         </motion.p>
 
-        {/* Action Button Strip */}
+        {/* Action Button Row */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
           className="mt-8 flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 font-mono font-bold text-xs sm:text-sm uppercase tracking-wider"
         >
-          {/* 1. Primary: VIEW MY WORK */}
+          {/* 1. Primary: VIEW WORK */}
           <button
             onClick={() => {
               if (onExploreClick) onExploreClick();
               else scrollTo('work');
             }}
-            className="comic-btn-black px-5 py-3 flex items-center gap-2 cursor-pointer"
+            className="comic-btn-black px-6 py-3 flex items-center gap-2 cursor-pointer"
           >
-            <span>VIEW MY WORK</span>
+            <span>VIEW WORK</span>
             <ArrowDown className="w-4 h-4" />
           </button>
 
-          {/* 2. Secondary: WORK WITH ME */}
+          {/* 2. Secondary: LET'S TALK */}
           <button
             onClick={() => {
               if (onTalkClick) onTalkClick();
               else scrollTo('contact');
             }}
-            className="comic-btn-yellow px-5 py-3 flex items-center gap-2 cursor-pointer"
+            className="comic-btn-yellow px-6 py-3 flex items-center gap-2 cursor-pointer"
           >
-            <span>WORK WITH ME</span>
+            <span>LET'S TALK</span>
             <ArrowUpRight className="w-4 h-4" />
           </button>
 
-          {/* 3. Utility: DOWNLOAD RESUME */}
+          {/* 3. Utility: RESUME */}
           <a
             href={PERSONAL_DATA.socials.resumeUrl}
-            className="comic-btn-white px-5 py-3 flex items-center gap-2 cursor-pointer"
+            className="comic-btn-white px-6 py-3 flex items-center gap-2 cursor-pointer"
           >
             <FileText className="w-4 h-4" />
-            <span>DOWNLOAD RESUME</span>
+            <span>RESUME</span>
           </a>
         </motion.div>
       </div>
 
-      {/* ── 3D SIGNATURE IDENTITY OBJECT WITH COMIC ORBIT TAGS ── */}
-      <div className="relative w-full max-w-4xl flex items-center justify-center my-6 sm:my-8 px-4">
-        <div className="relative flex items-center justify-center">
-          {/* Central 3D Canvas */}
-          <HeroIdentity3D className="z-10" />
-
-          {/* Orbit Tag 1: Top Left - AI Systems */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="absolute -top-3 -left-3 sm:-left-12 md:-left-20 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
-          >
-            <Cpu className="w-3.5 h-3.5 text-purple-600" />
-            <span>AI SYSTEMS</span>
-          </motion.div>
-
-          {/* Orbit Tag 2: Bottom Left - Full Stack */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="absolute bottom-4 -left-3 sm:-left-14 md:-left-24 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
-          >
-            <Layers className="w-3.5 h-3.5 text-blue-600" />
-            <span>FULL-STACK</span>
-          </motion.div>
-
-          {/* Orbit Tag 3: Top Right - Live Ship */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="absolute -top-3 -right-3 sm:-right-12 md:-right-20 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-[#FAFF00] border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-black" />
-            <span>FAST SHIPPER</span>
-          </motion.div>
-
-          {/* Orbit Tag 4: Bottom Right - WebRTC SFU */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="absolute bottom-4 -right-3 sm:-right-14 md:-right-24 z-20 flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-black shadow-[3px_3px_0px_#000] text-[11px] font-mono font-bold text-black"
-          >
-            <Terminal className="w-3.5 h-3.5 text-emerald-600" />
-            <span>WEBRTC SFU</span>
-          </motion.div>
-        </div>
+      {/* ── CLEAN 3D KINETIC OBJECT (NO OVERLAY LABELS) ── */}
+      <div className="relative w-full max-w-xl flex items-center justify-center my-8 sm:my-10">
+        <HeroIdentity3D className="z-10" />
       </div>
 
-      {/* ── BOTTOM CREDENTIAL TICKER ── */}
-      <div className="w-full max-w-7xl mx-auto mt-6 pt-4 border-t-2 border-black flex flex-wrap items-center justify-between gap-3 text-xs font-mono font-bold text-black">
-        <div className="flex flex-wrap items-center gap-2 sm:gap-4">
-          <span className="px-2 py-1 bg-white border border-black shadow-[2px_2px_0px_#000]">
-            📍 BENGALURU, INDIA
-          </span>
-          <span className="px-2 py-1 bg-white border border-black shadow-[2px_2px_0px_#000]">
-            🎓 ALLIANCE UNIVERSITY
-          </span>
-          <span className="px-2 py-1 bg-[#FAFF00] border border-black shadow-[2px_2px_0px_#000]">
-            ⚡ 50+ DSA PROBLEMS
-          </span>
-          <span className="px-2 py-1 bg-white border border-black shadow-[2px_2px_0px_#000]">
-            🏆 4X FINALIST · 1X WINNER
-          </span>
-        </div>
-
+      {/* ── CLEAN BOTTOM SCROLL HINT ── */}
+      <div className="w-full max-w-6xl mx-auto flex items-center justify-center">
         <button
-          onClick={() => scrollTo('overview')}
-          className="inline-flex items-center gap-1.5 text-xs text-neutral-800 hover:text-black hover:underline cursor-pointer"
+          onClick={() => scrollTo('work')}
+          className="font-mono text-xs font-bold text-neutral-600 hover:text-black flex items-center gap-1.5 cursor-pointer uppercase tracking-wider"
         >
-          <span>EXPLORE OVERVIEW</span>
+          <span>SCROLL TO EXPLORE</span>
           <ArrowDown className="w-3.5 h-3.5" />
         </button>
       </div>
