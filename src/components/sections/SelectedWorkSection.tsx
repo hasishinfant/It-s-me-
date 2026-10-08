@@ -32,21 +32,13 @@ export const SelectedWorkSection: React.FC = () => {
               className="bg-white border-2 sm:border-[3px] border-black shadow-[8px_8px_0px_#000] p-6 sm:p-10 relative overflow-hidden"
             >
               {/* Top Meta Strip */}
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <span className={`px-3 py-1 border-2 border-black text-xs font-mono font-black uppercase ${
-                    idx === 0 
-                      ? 'bg-[#FAFF00] text-black shadow-[3px_3px_0px_#000]' 
-                      : idx === 1 
-                      ? 'bg-[#FF0000] text-white shadow-[3px_3px_0px_#000]' 
-                      : 'bg-black text-white shadow-[3px_3px_0px_#000]'
-                  }`}>
-                    {project.badge}
-                  </span>
-                  <span className="px-2.5 py-1 bg-neutral-100 border border-black text-[11px] font-mono font-bold text-neutral-700">
-                    {project.category} · {project.year}
-                  </span>
-                </div>
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <span className="font-mono text-xs font-bold text-neutral-600 uppercase tracking-wider">
+                  {project.category} · {project.year}
+                </span>
+                <span className="font-mono text-xs font-black text-black">
+                  0{idx + 1}
+                </span>
               </div>
 
               {/* Title & Tagline */}

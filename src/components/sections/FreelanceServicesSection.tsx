@@ -58,9 +58,6 @@ export const FreelanceServicesSection: React.FC<FreelanceServicesSectionProps> =
                   <span className="w-9 h-9 bg-black text-[#FAFF00] border-2 border-black flex items-center justify-center font-mono font-black text-sm">
                     {service.number}
                   </span>
-                  <span className="px-2.5 py-0.5 bg-neutral-100 border border-black text-[10px] font-mono font-bold text-black uppercase">
-                    {service.tag}
-                  </span>
                 </div>
 
                 <h3 className="text-2xl font-black font-grotesk text-black mb-3">

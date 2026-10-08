@@ -58,11 +58,9 @@ export const ProjectIndexSection: React.FC = () => {
                 {item.year}
               </div>
 
-              <div className="col-span-3 text-xs font-bold text-neutral-800">
+              <div className="col-span-3 text-xs font-bold text-neutral-800 uppercase">
                 <span className="md:hidden text-neutral-400 mr-2">CATEGORY:</span>
-                <span className="px-2 py-0.5 bg-neutral-100 border border-black text-[10px]">
-                  {item.type}
-                </span>
+                <span>{item.type}</span>
               </div>
 
               <div className="col-span-3 text-xs font-bold text-neutral-700 md:text-right truncate">

@@ -12,26 +12,18 @@ const HERO_PHOTOS = [
   {
     src: '/images/hasish-presenting.jpg',
     alt: 'Hasish presenting NeoScholar AI',
-    caption: 'PRESENTING',
-    badgeColor: 'bg-[#FAFF00] text-black',
   },
   {
     src: '/images/hasish-speaking.jpg',
     alt: 'Hasish speaking at tech event',
-    caption: 'SPEAKER',
-    badgeColor: 'bg-black text-[#FAFF00]',
   },
   {
     src: '/images/hasish-microsoft.jpg',
     alt: 'Hasish at Microsoft Copilot',
-    caption: 'MICROSOFT',
-    badgeColor: 'bg-[#FF0000] text-white',
   },
   {
     src: '/images/hasish-uipath.jpg',
     alt: 'Hasish at UiPath Agent Builders Day Chennai',
-    caption: 'UIPATH AGENTS',
-    badgeColor: 'bg-white text-black',
   },
 ];
 
@@ -69,7 +61,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
         </button>
       </div>
 
-      {/* ── MAIN HERO CONTENT: TEXT LEFT + 2x2 PHOTO GRID RIGHT ── */}
+      {/* ── MAIN HERO CONTENT: TEXT LEFT + 2x2 PHOTO GRID RIGHT (NO OVERLAY TAGS) ── */}
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-14 mt-8 sm:mt-12 z-10">
         {/* Left: Headline, Subtitle, CTAs */}
         <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -135,7 +127,7 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
           </motion.div>
         </div>
 
-        {/* Right: Neo-Brutalist 2x2 Photo Collage */}
+        {/* Right: Neo-Brutalist 2x2 Photo Frame (Clean photos, strictly NO tags) */}
         <motion.div
           initial={{ opacity: 0, x: 25 }}
           animate={{ opacity: 1, x: 0 }}
@@ -146,25 +138,16 @@ export const EditorialHero: React.FC<EditorialHeroProps> = ({ onExploreClick, on
             {HERO_PHOTOS.map((photo, idx) => (
               <div
                 key={idx}
-                className="relative group overflow-hidden border-2 border-black shadow-[3px_3px_0px_#000] bg-neutral-100"
+                className="overflow-hidden border-2 border-black shadow-[3px_3px_0px_#000] bg-neutral-100"
               >
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  className="w-full h-[155px] sm:h-[185px] object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-[160px] sm:h-[190px] object-cover object-top hover:scale-105 transition-transform duration-300"
                   loading="eager"
                 />
-                <div
-                  className={`absolute bottom-2 left-2 px-2 py-0.5 border border-black font-mono text-[9px] font-black uppercase shadow-[1px_1px_0px_#000] ${photo.badgeColor}`}
-                >
-                  {photo.caption}
-                </div>
               </div>
             ))}
-          </div>
-          <div className="mt-2.5 flex items-center justify-between font-mono text-[10px] font-bold text-neutral-600 uppercase tracking-wider">
-            <span>HASISH INFANT</span>
-            <span>BUILDER IN PUBLIC · BENGALURU</span>
           </div>
         </motion.div>
       </div>
